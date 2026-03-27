@@ -676,7 +676,7 @@ figcaption,
 
 .featured-stack {
   display: grid;
-  gap: 2.5rem;
+  gap: 7.5rem;
 }
 
 .featured-project {
