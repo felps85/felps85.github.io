@@ -1,0 +1,1547 @@
+{
+  "exportedAt": "2026-03-26T11:42:45.032Z",
+  "source": "https://felip.eu",
+  "home": {
+    "siteTitle": "Felipe Soares",
+    "metaDescription": "Product designer living in Dublin",
+    "heading": "Hi there!",
+    "intro": "I am a Product Designer living in Dublin.\nScroll down to see some of my work.",
+    "socials": [
+      "https://www.behance.net/felipecosta",
+      "https://www.linkedin.com/in/lfcostar/",
+      "https://vimeo.com/felipecosta",
+      "https://github.com/felps85",
+      "mailto:lfcosta.r@gmail.com"
+    ]
+  },
+  "contact": {
+    "title": "Contact",
+    "email": "mailto:lfcosta.r@gmail.com",
+    "formFields": [
+      "Name",
+      "Email Address",
+      "Message"
+    ]
+  },
+  "projects": [
+    {
+      "slug": "pension-account",
+      "cover": "https://cdn.myportfolio.com/a4d82523-17a0-44c3-b21b-d3aa8ccd035c/db031885-00fe-48ad-9188-13e3ccc2e7c3_car_4x3.png?h=835ef661be5a4cd2fed7e0c9a4508ec6",
+      "title": "Pension account",
+      "year": "2025",
+      "url": "https://felip.eu/pension-account",
+      "modules": [
+        {
+          "type": "image",
+          "src": "https://cdn.myportfolio.com/a4d82523-17a0-44c3-b21b-d3aa8ccd035c/6ecd4aba-5204-41aa-9f0c-f26980842b0a.png?h=2c0be7170d951172975cbf3e931fe875",
+          "caption": ""
+        },
+        {
+          "type": "image",
+          "src": "https://cdn.myportfolio.com/a4d82523-17a0-44c3-b21b-d3aa8ccd035c/84b11db7-32f3-4374-bac5-1ccc3279c21f.png?h=fb44aa6f2f0499c5e9f7b278c5bc03da",
+          "caption": ""
+        },
+        {
+          "type": "image",
+          "src": "https://cdn.myportfolio.com/a4d82523-17a0-44c3-b21b-d3aa8ccd035c/252add13-eed4-4c29-b0d3-f7c909238f00.png?h=241f6ff5e5aa16c2b56a14b9a97cef01",
+          "caption": ""
+        },
+        {
+          "type": "image",
+          "src": "https://cdn.myportfolio.com/a4d82523-17a0-44c3-b21b-d3aa8ccd035c/66037004-de86-450e-86a0-f5195f05b707.png?h=4ff9af5ba7dea14e763ab56e097e70e3",
+          "caption": ""
+        },
+        {
+          "type": "image",
+          "src": "https://cdn.myportfolio.com/a4d82523-17a0-44c3-b21b-d3aa8ccd035c/f7e8f286-7953-4999-9141-2bb751ae4bfd.png?h=824847692d05e6a1a20b8b396ab4234b",
+          "caption": ""
+        },
+        {
+          "type": "image",
+          "src": "https://cdn.myportfolio.com/a4d82523-17a0-44c3-b21b-d3aa8ccd035c/e74f2ab0-5ae8-4331-abb4-ed1a0b113333.png?h=fa7fef2388758574045e7e565702e631",
+          "caption": ""
+        },
+        {
+          "type": "image",
+          "src": "https://cdn.myportfolio.com/a4d82523-17a0-44c3-b21b-d3aa8ccd035c/74d832ea-f690-4945-a400-6a450f74b9fc.png?h=873bbf923e2387623e927e4e014eb026",
+          "caption": ""
+        },
+        {
+          "type": "image",
+          "src": "https://cdn.myportfolio.com/a4d82523-17a0-44c3-b21b-d3aa8ccd035c/256c6f8a-e129-40a8-8981-d6180f93f899.png?h=d71dfee282996d39af76f30ee0588a5e",
+          "caption": ""
+        },
+        {
+          "type": "image",
+          "src": "https://cdn.myportfolio.com/a4d82523-17a0-44c3-b21b-d3aa8ccd035c/e1ab7030-380d-46e3-a4b3-7c1e02dd9d6c.png?h=6dbf6be9f5832ea047a3dede36c93ce3",
+          "caption": ""
+        },
+        {
+          "type": "image",
+          "src": "https://cdn.myportfolio.com/a4d82523-17a0-44c3-b21b-d3aa8ccd035c/73893425-ea47-4170-82ef-a17138dc8263.png?h=3d01cf2fef8551769292f76e71cbc10a",
+          "caption": ""
+        },
+        {
+          "type": "image",
+          "src": "https://cdn.myportfolio.com/a4d82523-17a0-44c3-b21b-d3aa8ccd035c/91654c20-aa9b-4bef-ad22-b9b30ffc70e7.png?h=bf9afad643f12a4a6739bdca898d4632",
+          "caption": ""
+        },
+        {
+          "type": "image",
+          "src": "https://cdn.myportfolio.com/a4d82523-17a0-44c3-b21b-d3aa8ccd035c/26391a56-47b6-4a5c-aad7-747baa2f8267.png?h=c229f0fc130a28c49e2bd3117722f198",
+          "caption": ""
+        },
+        {
+          "type": "text",
+          "text": "The app was rolled over to a few of the companies using Mercer, with growing numbers every day. At each iteration we improve how much the users are returning to the app and exploring the functionalities the app offers. Also trying to reduce the number of calls to Mercer to explain how their pensions or their plan works."
+        }
+      ],
+      "summary": "The app was rolled over to a few of the companies using Mercer, with growing numbers every day. At each iteration we improve how much the users are returning to the app and exploring the functionalities the app offers. Also trying to reduce the number of calls to Mercer to explain how their pensions or their plan works."
+    },
+    {
+      "slug": "savings-account",
+      "cover": "https://cdn.myportfolio.com/a4d82523-17a0-44c3-b21b-d3aa8ccd035c/06401a81-7770-419f-ae47-0cd9dc159cf3_car_4x3.png?h=8864618220dd29cc087c581fc2fd8b5c",
+      "title": "Savings account",
+      "year": "2025",
+      "url": "https://felip.eu/savings-account",
+      "modules": [
+        {
+          "type": "image",
+          "src": "https://cdn.myportfolio.com/a4d82523-17a0-44c3-b21b-d3aa8ccd035c/79d80c02-d9d5-4fca-8a57-14aa4b56843e.png?h=29dc3c7af730cbb1f06d65665df4468d",
+          "caption": ""
+        },
+        {
+          "type": "text",
+          "text": "Really interesting how a few automations on a Saving Account can make it more interesting and work better. The focus here was to find how people can make savings more fun, personalising and automating their goal."
+        },
+        {
+          "type": "image",
+          "src": "https://cdn.myportfolio.com/a4d82523-17a0-44c3-b21b-d3aa8ccd035c/bb9dd5e5-23d3-4074-bb35-c4c3fc2344ad.png?h=87501743f6baf15278a572d2b3c75420",
+          "caption": ""
+        },
+        {
+          "type": "text",
+          "text": "A few ideas of the rules that can be applied to your savings"
+        },
+        {
+          "type": "image",
+          "src": "https://cdn.myportfolio.com/a4d82523-17a0-44c3-b21b-d3aa8ccd035c/42b11f93-1dd8-4dcd-b91c-031ec7e15558.png?h=517f27be98e9a78a86842ae197275409",
+          "caption": ""
+        }
+      ],
+      "summary": "Really interesting how a few automations on a Saving Account can make it more interesting and work better. The focus here was to find how people can make savings more fun, personalising and automating their goal.\n\nA few ideas of the rules that can be applied to your savings"
+    },
+    {
+      "slug": "open-banking",
+      "cover": "https://cdn.myportfolio.com/a4d82523-17a0-44c3-b21b-d3aa8ccd035c/d981d385-e27c-4c82-9502-799701cce6ef_car_4x3.png?h=6e45e37ce673c2b9efbb9c9ccfdc5810",
+      "title": "Open Banking",
+      "year": "2025",
+      "url": "https://felip.eu/open-banking",
+      "modules": [
+        {
+          "type": "text",
+          "text": "This white label version allowed us to explore and test how open banking could potentially work and evolve over time. On the Dashboard you could take the Discovery Challenge to be ready to get advice or add different types of account. With more information we would be able to show you insights on your finances and guide towards a better financial path."
+        },
+        {
+          "type": "image",
+          "src": "https://cdn.myportfolio.com/a4d82523-17a0-44c3-b21b-d3aa8ccd035c/583f22ab-aa56-40e7-900c-7e52ee6ebde3.png?h=cbad1a76e7643fdc0592800308f12ac5",
+          "caption": ""
+        },
+        {
+          "type": "text",
+          "text": "You could individually check information on a particular bank you added or combine all of them together for a current account overview, here is an example of the information we could retrieve from your bank and how we could potentially bring more flexibility to it."
+        },
+        {
+          "type": "image",
+          "src": "https://cdn.myportfolio.com/a4d82523-17a0-44c3-b21b-d3aa8ccd035c/b035301a-06b6-40e5-b6a6-3bf5baba2d69.png?h=6b8b3540200656f7bc857e534bb71b28",
+          "caption": ""
+        },
+        {
+          "type": "text",
+          "text": "The categories could have their own insights and be an entry point to set up budgets too."
+        },
+        {
+          "type": "image",
+          "src": "https://cdn.myportfolio.com/a4d82523-17a0-44c3-b21b-d3aa8ccd035c/f3548183-fe55-43e4-b559-330047626c88.png?h=83bddfde0dffb27767c1aaf2c0516016",
+          "caption": ""
+        },
+        {
+          "type": "text",
+          "text": "Over time we had a lot of insights and research on how the open banking we were offering could evolve and how people could benefit from using some of these features. We divided all the features into phases of development and have most of them ready to ship. When building it we also included some room for changes, as different users might need different kinds of visualisation or features."
+        }
+      ],
+      "summary": "This white label version allowed us to explore and test how open banking could potentially work and evolve over time. On the Dashboard you could take the Discovery Challenge to be ready to get advice or add different types of account. With more information we would be able to show you insights on your finances and guide towards a better financial path.\n\nYou could individually check information on a particular bank you added or combine all of them together for a current account overview, here is an example of the information we could retrieve from your bank and how we could potentially bring more flexibility to it.\n\nThe categories could have their own insights and be an entry point to set up budgets too.\n\nOver time we had a lot of insights and research on how the open banking we were offering could evolve and how people could benefit from using some of these features. We divided all the features into phases of development and have most of them ready to ship. When building it we also included some room for changes, as different users might need different kinds of visualisation or features."
+    },
+    {
+      "slug": "discovery-missions",
+      "cover": "https://cdn.myportfolio.com/a4d82523-17a0-44c3-b21b-d3aa8ccd035c/8869f17e-f4cd-420f-855f-e9efd408bef7_car_4x3.png?h=50def7404e17526da04498e3f774b966",
+      "title": "Discovery missions",
+      "year": "2024",
+      "url": "https://felip.eu/discovery-missions",
+      "modules": [
+        {
+          "type": "image",
+          "src": "https://cdn.myportfolio.com/a4d82523-17a0-44c3-b21b-d3aa8ccd035c/44b73697-0e2d-42e5-b6ce-40f9acffdb46.png?h=776ec6b116c7e553a1b7c6b5e728bb5b",
+          "caption": ""
+        },
+        {
+          "type": "image",
+          "src": "https://cdn.myportfolio.com/a4d82523-17a0-44c3-b21b-d3aa8ccd035c/ae7209f6-5f96-4dc7-a079-f98cce60624f.png?h=de8257e2cf495fa1f156e3e34f073865",
+          "caption": ""
+        },
+        {
+          "type": "image",
+          "src": "https://cdn.myportfolio.com/a4d82523-17a0-44c3-b21b-d3aa8ccd035c/dabdba76-bbcf-4912-9b2b-8ef9663e0494.png?h=f0a7bd48a2f07ca103450cd292b7fecb",
+          "caption": ""
+        },
+        {
+          "type": "image",
+          "src": "https://cdn.myportfolio.com/a4d82523-17a0-44c3-b21b-d3aa8ccd035c/4d55281d-6717-412f-802c-2dcb481d1398.png?h=d4610815351536042c553bd4fa094bb2",
+          "caption": ""
+        },
+        {
+          "type": "image",
+          "src": "https://cdn.myportfolio.com/a4d82523-17a0-44c3-b21b-d3aa8ccd035c/ad10c996-c876-4ec9-a709-939198de712a.png?h=db5ebedb47e0c38f575f2b476e840dcc",
+          "caption": ""
+        },
+        {
+          "type": "image",
+          "src": "https://cdn.myportfolio.com/a4d82523-17a0-44c3-b21b-d3aa8ccd035c/d443ee29-2df9-4fec-9092-9c184d6ecaa9.png?h=9275ade60c92af9f76cb8fb6fbec57cb",
+          "caption": ""
+        },
+        {
+          "type": "image",
+          "src": "https://cdn.myportfolio.com/a4d82523-17a0-44c3-b21b-d3aa8ccd035c/987eda92-f62f-4661-b5ff-2d410fc35330.png?h=9e78955385cf2484e5b6717588e046c4",
+          "caption": ""
+        },
+        {
+          "type": "image",
+          "src": "https://cdn.myportfolio.com/a4d82523-17a0-44c3-b21b-d3aa8ccd035c/cf93c7f5-2805-4963-992b-f97d7643d846.png?h=8c2da788ca069f597916223aa1679633",
+          "caption": ""
+        },
+        {
+          "type": "image",
+          "src": "https://cdn.myportfolio.com/a4d82523-17a0-44c3-b21b-d3aa8ccd035c/8c8d2df2-9315-4626-8e0d-992b52980854.png?h=d9fba36a53f171a7b9d8af1c9978e9a9",
+          "caption": ""
+        },
+        {
+          "type": "image",
+          "src": "https://cdn.myportfolio.com/a4d82523-17a0-44c3-b21b-d3aa8ccd035c/6eedbf13-85d2-4ee9-a5c7-240129de0a32.png?h=4753782bb383191e052eac59e21eacac",
+          "caption": ""
+        },
+        {
+          "type": "image",
+          "src": "https://cdn.myportfolio.com/a4d82523-17a0-44c3-b21b-d3aa8ccd035c/502728e7-391a-4b06-91a2-8042a0b3bb3d.png?h=16efc141da6b777bcfea577642788aa9",
+          "caption": ""
+        },
+        {
+          "type": "image",
+          "src": "https://cdn.myportfolio.com/a4d82523-17a0-44c3-b21b-d3aa8ccd035c/ee9c2eac-4641-4d29-9963-3a5b460ba24b.png?h=bf9800551b504bac62289fbc54200bc3",
+          "caption": ""
+        },
+        {
+          "type": "image",
+          "src": "https://cdn.myportfolio.com/a4d82523-17a0-44c3-b21b-d3aa8ccd035c/5ea44cfe-ae7a-4186-a5ba-26bec5e352ce.png?h=ebdcfb64dfa3d368ace52a27a8c02aaf",
+          "caption": ""
+        },
+        {
+          "type": "image",
+          "src": "https://cdn.myportfolio.com/a4d82523-17a0-44c3-b21b-d3aa8ccd035c/1a4c5960-f478-4fc3-ad0e-1bdac040af31.png?h=1675e2c53e3152e3d30a3cc8937caddc",
+          "caption": ""
+        }
+      ],
+      "summary": ""
+    },
+    {
+      "slug": "dimply-admin-old-sample",
+      "cover": "https://cdn.myportfolio.com/a4d82523-17a0-44c3-b21b-d3aa8ccd035c/1d850ecb-ebac-410e-91a4-307b8e76d191_car_4x3.png?h=eae447bc61481bfb2c8d5aeba0371f30",
+      "title": "Dimply admin (sample)",
+      "year": "2022",
+      "url": "https://felip.eu/dimply-admin-old-sample",
+      "modules": [
+        {
+          "type": "text",
+          "text": "1st exploration of the Dimply Admin. Ver time we completely changed the way this works to add more functionality and better manage all the different possibilities the platform can deliver. This exploration was useful for our devs to test and build some of the early iterations with our offer."
+        },
+        {
+          "type": "image",
+          "src": "https://cdn.myportfolio.com/a4d82523-17a0-44c3-b21b-d3aa8ccd035c/c1b7bab2-6d3b-4376-83b9-11c5b9a5dcc5.png?h=4fe77a3f18eca14a919322aeae0f3fe5",
+          "caption": ""
+        }
+      ],
+      "summary": "1st exploration of the Dimply Admin. Ver time we completely changed the way this works to add more functionality and better manage all the different possibilities the platform can deliver. This exploration was useful for our devs to test and build some of the early iterations with our offer."
+    },
+    {
+      "slug": "dimply-preview",
+      "cover": "https://cdn.myportfolio.com/a4d82523-17a0-44c3-b21b-d3aa8ccd035c/2bd4dc9a-1d6f-4305-bf2e-acb8cd034e98_car_4x3.png?h=63f501e80b2634a386f2e4baad7aa203",
+      "title": "Dimply (preview)",
+      "year": "2022",
+      "url": "https://felip.eu/dimply-preview",
+      "modules": [
+        {
+          "type": "text",
+          "text": "Dimply\nThe intelligent experience and engagement platform for financial enterprises.\n(Preview)"
+        },
+        {
+          "type": "image",
+          "src": "https://cdn.myportfolio.com/a4d82523-17a0-44c3-b21b-d3aa8ccd035c/44e46dd0-e17b-43c5-a907-01b308eb3dce.png?h=0461a4718d96eab8496bb67bd52335b6",
+          "caption": ""
+        },
+        {
+          "type": "image",
+          "src": "https://cdn.myportfolio.com/a4d82523-17a0-44c3-b21b-d3aa8ccd035c/5faa521a-8359-40eb-8c6e-d90c2151a46c.png?h=5a8edea098428850cf1a03c844688e5e",
+          "caption": ""
+        },
+        {
+          "type": "image",
+          "src": "https://cdn.myportfolio.com/a4d82523-17a0-44c3-b21b-d3aa8ccd035c/0019c07c-b110-4146-9b43-c49c3c20ed02.png?h=8e16be8397a42832427b7fae0c208da9",
+          "caption": ""
+        },
+        {
+          "type": "image",
+          "src": "https://cdn.myportfolio.com/a4d82523-17a0-44c3-b21b-d3aa8ccd035c/571bab61-0554-4c30-9a73-80c086f70f60.png?h=04eca9c85a2067dd08bf0e7839335600",
+          "caption": ""
+        }
+      ],
+      "summary": "Dimply\nThe intelligent experience and engagement platform for financial enterprises.\n(Preview)"
+    },
+    {
+      "slug": "mortgage-viewer",
+      "cover": "https://cdn.myportfolio.com/a4d82523-17a0-44c3-b21b-d3aa8ccd035c/e7333aeb-e33f-470f-bebc-c3b15307c9f1_rwc_0x0x1798x1349x1798.png?h=8fd6dd5aff84b0052e5f97d8007bfcdd",
+      "title": "Mortgage Viewer",
+      "year": "2021",
+      "url": "https://felip.eu/mortgage-viewer",
+      "modules": [
+        {
+          "type": "text",
+          "text": "Mortgage Viewer"
+        },
+        {
+          "type": "image",
+          "src": "https://cdn.myportfolio.com/a4d82523-17a0-44c3-b21b-d3aa8ccd035c/e13bfc69-e771-4c85-bd6c-70c73c92422d.png?h=7bba53494a5e380dae687d9dade49403",
+          "caption": ""
+        }
+      ],
+      "summary": "Mortgage Viewer"
+    },
+    {
+      "slug": "gmail-for-work",
+      "cover": "https://cdn.myportfolio.com/a4d82523-17a0-44c3-b21b-d3aa8ccd035c/bf59c011-b698-4d7f-870f-72f13c791a0e_rwc_0x138x1091x818x1091.png?h=699fe04bf0567040a0fd1df79c742bb7",
+      "title": "Gmail for work",
+      "year": "2021",
+      "url": "https://felip.eu/gmail-for-work",
+      "modules": [
+        {
+          "type": "text",
+          "text": "The main idea here was to explore the idea of gmail to work. Usually used on desktop, it can get cluttered with too much information on the screen and improve the integration among Google products to make the workflow easier.\nAlso, explore the idea of an hybrid of messaging and email platforms.\n(work in progress - there are a lot of tweaks to be made on the UI of this project and also explain more the functionalities added here. Add interaction, contextual animation and hover states too... and definitely work on the presentation here lol)"
+        },
+        {
+          "type": "image",
+          "src": "https://cdn.myportfolio.com/a4d82523-17a0-44c3-b21b-d3aa8ccd035c/7b911b28-f453-4c95-a3ff-b4003c86e852.png?h=fa6b349bee008514c74ff0c0bf448642",
+          "caption": "Google products with easy access on your left, and an option to screen new emails before going to your inbox"
+        },
+        {
+          "type": "image",
+          "src": "https://cdn.myportfolio.com/a4d82523-17a0-44c3-b21b-d3aa8ccd035c/fb3f8f8d-3ad7-439c-a4a5-8d9a9c0aaeca.png?h=eef78657c68c3a4f064acc0d46aa69c5",
+          "caption": "All your products on the sidebar instead of having them on the top right like today. The sidebar would be fixed on the page."
+        },
+        {
+          "type": "image",
+          "src": "https://cdn.myportfolio.com/a4d82523-17a0-44c3-b21b-d3aa8ccd035c/702b106f-a1a7-4d05-a332-cb26bae6a39a.png?h=5e4ac3777976dc4ce758ea43a9ffa62a",
+          "caption": "Add a widget on your right, like a calendar or notes to work together with your email. This column has its own scroll."
+        },
+        {
+          "type": "image",
+          "src": "https://cdn.myportfolio.com/a4d82523-17a0-44c3-b21b-d3aa8ccd035c/e4a56329-9a7a-4f54-8c40-3c4ed0c89cc3.png?h=8328c71d663396c0b3a43239739c0ce9",
+          "caption": "The email itself is organised as a message, with option to initiate a call with the particiants or leave a note for yourself"
+        },
+        {
+          "type": "image",
+          "src": "https://cdn.myportfolio.com/a4d82523-17a0-44c3-b21b-d3aa8ccd035c/339457fc-eb9a-4fa8-bbd3-31abd61b706e.png?h=cbdee88c5b351143ceab49ad3a73fec1",
+          "caption": "Search for images and files instead of going through your emails"
+        },
+        {
+          "type": "image",
+          "src": "https://cdn.myportfolio.com/a4d82523-17a0-44c3-b21b-d3aa8ccd035c/cf1c5bce-7500-4144-aed3-aa0eedb1d168.png?h=e8fdfaaf65a04a8b19f3f4e39ff74eb2",
+          "caption": "Save important information on your Google Keep to have easy access on all your devices"
+        },
+        {
+          "type": "image",
+          "src": "https://cdn.myportfolio.com/a4d82523-17a0-44c3-b21b-d3aa8ccd035c/c5d1be0a-d980-47f8-aedc-441a72319fa8.png?h=fd4587f45b70d0ce939bb90d7e2d77ab",
+          "caption": "A different layout, still exploring (especially in smaller screens)"
+        }
+      ],
+      "summary": "The main idea here was to explore the idea of gmail to work. Usually used on desktop, it can get cluttered with too much information on the screen and improve the integration among Google products to make the workflow easier.\nAlso, explore the idea of an hybrid of messaging and email platforms.\n(work in progress - there are a lot of tweaks to be made on the UI of this project and also explain more the functionalities added here. Add interaction, contextual animation and hover states too... and definitely work on the presentation here lol)"
+    },
+    {
+      "slug": "apple-health-improve-dau",
+      "cover": "https://cdn.myportfolio.com/a4d82523-17a0-44c3-b21b-d3aa8ccd035c/5553d99c-8ace-43e8-856a-21aac584cb69_car_4x3.png?h=c6f966c09a4aad4671d2106a20f2bb6f",
+      "title": "Apple Health - Improve DAU",
+      "year": "2020",
+      "url": "https://felip.eu/apple-health-improve-dau",
+      "modules": [
+        {
+          "type": "text",
+          "text": "Apple Health\nSmall assessment to improve their DAU. This is a work in progress."
+        },
+        {
+          "type": "image",
+          "src": "https://cdn.myportfolio.com/a4d82523-17a0-44c3-b21b-d3aa8ccd035c/3181e89f-10a0-4fc8-8c26-32cd3c0647c0.png?h=0b65df302fd6c29b47e9824e4b0a966a",
+          "caption": ""
+        },
+        {
+          "type": "image",
+          "src": "https://cdn.myportfolio.com/a4d82523-17a0-44c3-b21b-d3aa8ccd035c/44c9e3fb-3f55-40a8-b57b-399633a449b4.png?h=ee0d225fa3da7089fe4ec58e7c4c3f04",
+          "caption": ""
+        },
+        {
+          "type": "image",
+          "src": "https://cdn.myportfolio.com/a4d82523-17a0-44c3-b21b-d3aa8ccd035c/cad90120-0d83-4f46-9f27-429ed001e0a6.png?h=d308f13bfdbd546196899da57c8b5fe2",
+          "caption": ""
+        },
+        {
+          "type": "image",
+          "src": "https://cdn.myportfolio.com/a4d82523-17a0-44c3-b21b-d3aa8ccd035c/48a5ee22-d3b7-47b7-9bd5-7d6f275cd8e5.png?h=6546941085ac1e319f79f3a1807b7e9a",
+          "caption": ""
+        },
+        {
+          "type": "image",
+          "src": "https://cdn.myportfolio.com/a4d82523-17a0-44c3-b21b-d3aa8ccd035c/9dc31ea8-455f-4df8-a76a-6b84790567c4.png?h=9f30389d5c4eeb4045e9414f9f3d4406",
+          "caption": ""
+        },
+        {
+          "type": "image",
+          "src": "https://cdn.myportfolio.com/a4d82523-17a0-44c3-b21b-d3aa8ccd035c/2cebff1e-973d-4750-9611-97693e429fb2.png?h=73085aacc6067f339d29c7f86e27b555",
+          "caption": ""
+        },
+        {
+          "type": "image",
+          "src": "https://cdn.myportfolio.com/a4d82523-17a0-44c3-b21b-d3aa8ccd035c/bbd6eed6-a2da-4664-b519-86dd347d3b30.png?h=4d1b3da716aa93147073d1aa836f6794",
+          "caption": ""
+        },
+        {
+          "type": "image",
+          "src": "https://cdn.myportfolio.com/a4d82523-17a0-44c3-b21b-d3aa8ccd035c/f934d711-c080-4759-a656-49d8dc5a873d.png?h=82193a4da331c192e9fe8f6a9eb8600b",
+          "caption": ""
+        },
+        {
+          "type": "image",
+          "src": "https://cdn.myportfolio.com/a4d82523-17a0-44c3-b21b-d3aa8ccd035c/712fcd18-b801-4187-a387-8e7f8cc3c820.png?h=d60ab50773ad66f5dc120e01203fe7cb",
+          "caption": ""
+        },
+        {
+          "type": "image",
+          "src": "https://cdn.myportfolio.com/a4d82523-17a0-44c3-b21b-d3aa8ccd035c/9bcaac3d-f10d-4a7c-a349-91ee03d4d626.png?h=d9dffc06928f26c9387d2466ef9b9c5d",
+          "caption": ""
+        },
+        {
+          "type": "image",
+          "src": "https://cdn.myportfolio.com/a4d82523-17a0-44c3-b21b-d3aa8ccd035c/f9a754f8-260c-43a4-8023-bb723aa815d3.png?h=1e06cf64b6661daeba3815b1a20e746a",
+          "caption": ""
+        },
+        {
+          "type": "image",
+          "src": "https://cdn.myportfolio.com/a4d82523-17a0-44c3-b21b-d3aa8ccd035c/eabdfe21-b379-4797-ab5c-ae1df2be3862.png?h=94c51c436db72bfa7832945bca628189",
+          "caption": ""
+        },
+        {
+          "type": "image",
+          "src": "https://cdn.myportfolio.com/a4d82523-17a0-44c3-b21b-d3aa8ccd035c/83fe063d-83fd-455a-92b5-7906f053cb1a.png?h=a3278352a1614c52afe538aef724ecdd",
+          "caption": ""
+        },
+        {
+          "type": "image",
+          "src": "https://cdn.myportfolio.com/a4d82523-17a0-44c3-b21b-d3aa8ccd035c/c1459d3b-7d38-4e94-bc9f-7d30271beb6a.png?h=587a5e63e8cfc4226761d4ce51fb3961",
+          "caption": ""
+        },
+        {
+          "type": "image",
+          "src": "https://cdn.myportfolio.com/a4d82523-17a0-44c3-b21b-d3aa8ccd035c/4240368a-3c7c-446c-9a3b-517c74e904be.png?h=73b0c4d506a75487b59fe2903059dbfe",
+          "caption": ""
+        },
+        {
+          "type": "image",
+          "src": "https://cdn.myportfolio.com/a4d82523-17a0-44c3-b21b-d3aa8ccd035c/4a2bb90f-6a01-443a-8da6-ed134db31f75.png?h=5f2811d5f65c14a28ab64a8bca2d6491",
+          "caption": ""
+        },
+        {
+          "type": "image",
+          "src": "https://cdn.myportfolio.com/a4d82523-17a0-44c3-b21b-d3aa8ccd035c/7cec1f83-752a-43d6-b9e7-736f90221417.png?h=c76a59652b1c14e8ecebf67f19b9487f",
+          "caption": ""
+        },
+        {
+          "type": "image",
+          "src": "https://cdn.myportfolio.com/a4d82523-17a0-44c3-b21b-d3aa8ccd035c/3fa65fb5-8de8-45c3-ba7b-276abd50080d.png?h=7e0b987f77c1659fd0c061f2b87c7623",
+          "caption": ""
+        }
+      ],
+      "summary": "Apple Health\nSmall assessment to improve their DAU. This is a work in progress."
+    },
+    {
+      "slug": "ryanair-rooms",
+      "cover": "https://cdn.myportfolio.com/a4d82523-17a0-44c3-b21b-d3aa8ccd035c/7e7f1ca3-eaa3-40ef-8873-f7f90e757635_car_4x3.png?h=8695af79b8cd3d99efb247b0950a05b7",
+      "title": "Ryanair Rooms",
+      "year": "2019",
+      "url": "https://felip.eu/ryanair-rooms",
+      "modules": [
+        {
+          "type": "image",
+          "src": "https://cdn.myportfolio.com/a4d82523-17a0-44c3-b21b-d3aa8ccd035c/84706273-2941-4101-96a6-636682d368b2.png?h=a6b8b52830f87e45bf9064f59ffc011b",
+          "caption": ""
+        },
+        {
+          "type": "text",
+          "text": "Ryanair Rooms"
+        },
+        {
+          "type": "text",
+          "text": "When I first started at Ryanair I was curious about their proposition, they are the biggest airline operating in Europe and they revolutionized the air space with their Low Fare offers.\nMy first assignment was Ryanair Rooms, a service offered when booking your flights and also by email and Home page to book hotels and B&Bs, much like Booking.com but offering a comparison tool like Trivago or Kayak but without redirecting to the partner page. We also had our microsite, which received visits from their app and email campaign.\nOver time we had an extensive backlog with a great deal of design debt in it, like inconsistent buttons, solutions that were only partially implemented and a mistrust on the user’s side as we grew faster than sometimes we could manage, leading to pieces of information that weren’t clear, different levels of information for each page, formatting issues and so on.\nWe were a late player in a red sea, but with a great company behind.\nWe started looking at the brilliant work of our Research team and the things they flagged, analysed our competitors (booking.com, Airbnb, Expedia, hrs, Priceline, Agoda, etc) and some companies that are not directly performing the same service as Ryanair Rooms but related or really close (Skyscanner, Trivago, Tripadvisor, kayak, Google Travel, some airlines and so on) to check what were they offering, where they stand out, how they engage their customers and how they structure the hierarchy of information on their pages.\nWe looked closely on how our users were using our website (Hotjar) to identify where they were struggling and tested a few solutions along the way to verify our assumptions or just to discuss what could be developed to reduce manual tasks and errors.\nAlso, we looked at our backlog to cluster pain points and maybe try to tackle a good portion of our usability and perception problems on what would become an update on our UI, but incorporating a few new elements, simplifying the quest to find a good room.\nWe had some constraints that were far from our reach. We dealt with different providers (with their requirements and particularities), had limited capabilities for development, and we were running other projects in the background, like testing our algorithm and bringing new features: a booking manager and a more robust system for transactions.\nEverything we do we like to think on an MVP solution and phasing the full solution into sprint sizeable pieces trying to level our releases, and in the meantime refactoring a few old pieces of code on our website.\nWe run a few tests and got good feedback from users, so we begin our journey on adjusting the tone of voice and making sure that we were not wasting our resources untying the knot instead o buying new ropes."
+        },
+        {
+          "type": "image",
+          "src": "https://cdn.myportfolio.com/a4d82523-17a0-44c3-b21b-d3aa8ccd035c/a209a038-7ed9-4904-9524-e0a201250188.png?h=06cb1059b8bc125e0d63f88175359d26",
+          "caption": ""
+        },
+        {
+          "type": "image",
+          "src": "https://cdn.myportfolio.com/a4d82523-17a0-44c3-b21b-d3aa8ccd035c/d0c95c9f-357a-4ded-8e54-886aa202e286.png?h=2e3101795243e1f79f2326a58266da69",
+          "caption": ""
+        },
+        {
+          "type": "image",
+          "src": "https://cdn.myportfolio.com/a4d82523-17a0-44c3-b21b-d3aa8ccd035c/9a337bf5-b3c8-477f-9f9c-9edc499bc50e.png?h=7c648873fc6f506c37e2abb41aba8b41",
+          "caption": ""
+        },
+        {
+          "type": "image",
+          "src": "https://cdn.myportfolio.com/a4d82523-17a0-44c3-b21b-d3aa8ccd035c/2004affb-c962-45a1-831b-7cff7d523cff.png?h=a2272485c65755c35d9cc05ce055c2a5",
+          "caption": ""
+        },
+        {
+          "type": "image",
+          "src": "https://cdn.myportfolio.com/a4d82523-17a0-44c3-b21b-d3aa8ccd035c/6793d9ff-f2ab-4a3c-a111-839c456ac740.png?h=2233c9dbdca7b0996e84c7a2d6c59012",
+          "caption": ""
+        },
+        {
+          "type": "image",
+          "src": "https://cdn.myportfolio.com/a4d82523-17a0-44c3-b21b-d3aa8ccd035c/36214a05-1bdd-45bd-a145-76ea4b5c36fc.png?h=7508bbc611464a59f703ae693e5c4c1b",
+          "caption": ""
+        },
+        {
+          "type": "text",
+          "text": "Thanks!"
+        }
+      ],
+      "summary": "Ryanair Rooms\n\nWhen I first started at Ryanair I was curious about their proposition, they are the biggest airline operating in Europe and they revolutionized the air space with their Low Fare offers.\nMy first assignment was Ryanair Rooms, a service offered when booking your flights and also by email and Home page to book hotels and B&Bs, much like Booking.com but offering a comparison tool like Trivago or Kayak but without redirecting to the partner page. We also had our microsite, which received visits from their app and email campaign.\nOver time we had an extensive backlog with a great deal of design debt in it, like inconsistent buttons, solutions that were only partially implemented and a mistrust on the user’s side as we grew faster than sometimes we could manage, leading to pieces of information that weren’t clear, different levels of information for each page, formatting issues and so on.\nWe were a late player in a red sea, but with a great company behind.\nWe started looking at the brilliant work of our Research team and the things they flagged, analysed our competitors (booking.com, Airbnb, Expedia, hrs, Priceline, Agoda, etc) and some companies that are not directly performing the same service as Ryanair Rooms but related or really close (Skyscanner, Trivago, Tripadvisor, kayak, Google Travel, some airlines and so on) to check what were they offering, where they stand out, how they engage their customers and how they structure the hierarchy of information on their pages.\nWe looked closely on how our users were using our website (Hotjar) to identify where they were struggling and tested a few solutions along the way to verify our assumptions or just to discuss what could be developed to reduce manual tasks and errors.\nAlso, we looked at our backlog to cluster pain points and maybe try to tackle a good portion of our usability and perception problems on what would become an update on our UI, but incorporating a few new elements, simplifying the quest to find a good room.\nWe had some constraints that were far from our reach. We dealt with different providers (with their requirements and particularities), had limited capabilities for development, and we were running other projects in the background, like testing our algorithm and bringing new features: a booking manager and a more robust system for transactions.\nEverything we do we like to think on an MVP solution and phasing the full solution into sprint sizeable pieces trying to level our releases, and in the meantime refactoring a few old pieces of code on our website.\nWe run a few tests and got good feedback from users, so we begin our journey on adjusting the tone of voice and making sure that we were not wasting our resources untying the knot instead o buying new ropes.\n\nThanks!"
+    },
+    {
+      "slug": "aer-lingus",
+      "cover": "https://cdn.myportfolio.com/a4d82523-17a0-44c3-b21b-d3aa8ccd035c/00e7d862-afd0-45f2-bb57-b212e8eb052e_car_4x3.png?h=262b580241a3273691e08a490fabee7f",
+      "title": "Aer Lingus",
+      "year": "2018",
+      "url": "https://felip.eu/aer-lingus",
+      "modules": [
+        {
+          "type": "image",
+          "src": "https://cdn.myportfolio.com/a4d82523-17a0-44c3-b21b-d3aa8ccd035c/42163ac7-92c0-4a68-bc66-4b17e84a37be.png?h=48e7075f7ee7727d8a3a4deb559a13a6",
+          "caption": ""
+        },
+        {
+          "type": "image",
+          "src": "https://cdn.myportfolio.com/a4d82523-17a0-44c3-b21b-d3aa8ccd035c/dcd293af-060a-4680-b356-d033ce88eb67.png?h=35ebfb27bc16ced820100b6d8c78717d",
+          "caption": ""
+        },
+        {
+          "type": "image",
+          "src": "https://cdn.myportfolio.com/a4d82523-17a0-44c3-b21b-d3aa8ccd035c/0f7fd406-923b-4730-8a56-35937ccb76bf.png?h=9efa4806585f73cb6c91ad6d8de893cf",
+          "caption": ""
+        }
+      ],
+      "summary": ""
+    },
+    {
+      "slug": "small-animations",
+      "cover": "https://cdn.myportfolio.com/a4d82523-17a0-44c3-b21b-d3aa8ccd035c/8ed3df62-6a54-485f-83f3-2c97209fe3e7_car_4x3.png?h=1083d930f2946d184d92de1ab439801f",
+      "title": "Small Animations",
+      "year": "2018",
+      "url": "https://felip.eu/small-animations",
+      "modules": [
+        {
+          "type": "text",
+          "text": "Small animations that were used in videos and online to explain and illustrate a few functionalities and benefits from our app."
+        },
+        {
+          "type": "image",
+          "src": "https://cdn.myportfolio.com/a4d82523-17a0-44c3-b21b-d3aa8ccd035c/87cd3a72-ba07-4071-be83-998efb8c9a5e.gif?h=95dbd018d9a4ff9e1e7f684bd0320f39",
+          "caption": ""
+        },
+        {
+          "type": "image",
+          "src": "https://cdn.myportfolio.com/a4d82523-17a0-44c3-b21b-d3aa8ccd035c/333d6b8a-ba4b-4824-85f2-7c9ff4127943.gif?h=9191e962cc7907051fbc878a2d60c194",
+          "caption": ""
+        },
+        {
+          "type": "image",
+          "src": "https://cdn.myportfolio.com/a4d82523-17a0-44c3-b21b-d3aa8ccd035c/cd42da27-aad4-44e6-9cdd-5828a7f12410.gif?h=f209a9007aa97413657efc876bbf2cc8",
+          "caption": ""
+        },
+        {
+          "type": "image",
+          "src": "https://cdn.myportfolio.com/a4d82523-17a0-44c3-b21b-d3aa8ccd035c/c4119faf-7564-46d2-b8fe-0d48584f4531.gif?h=0c0afa82f819612ffaeea848a3632a17",
+          "caption": ""
+        },
+        {
+          "type": "image",
+          "src": "https://cdn.myportfolio.com/a4d82523-17a0-44c3-b21b-d3aa8ccd035c/8fc3c729-576f-4579-8013-f15b0eab4db7.gif?h=908bcbbd443a60717767f92c5fc06fb0",
+          "caption": ""
+        },
+        {
+          "type": "image",
+          "src": "https://cdn.myportfolio.com/a4d82523-17a0-44c3-b21b-d3aa8ccd035c/a06ba04f-74ac-4ed0-8247-7b94558070ad.gif?h=5fd7e67cc05f67a13d47d6b09933603c",
+          "caption": ""
+        },
+        {
+          "type": "image",
+          "src": "https://cdn.myportfolio.com/a4d82523-17a0-44c3-b21b-d3aa8ccd035c/757d6f52-47c5-4cc3-ba6a-5a5f99c24689.gif?h=6ac79068ce8a8ad2fced292eed8ab986",
+          "caption": ""
+        },
+        {
+          "type": "image",
+          "src": "https://cdn.myportfolio.com/a4d82523-17a0-44c3-b21b-d3aa8ccd035c/bfa08490-eb02-4cb4-982f-fe73842bae4f.gif?h=fcaf8d922a6d5511952659ca13ae93f2",
+          "caption": ""
+        },
+        {
+          "type": "image",
+          "src": "https://cdn.myportfolio.com/a4d82523-17a0-44c3-b21b-d3aa8ccd035c/5caa986e-4ea6-4e7a-93c8-d936fb5546ad.gif?h=bfa8864ae01cafca71ee121a4f6540a3",
+          "caption": ""
+        },
+        {
+          "type": "image",
+          "src": "https://cdn.myportfolio.com/a4d82523-17a0-44c3-b21b-d3aa8ccd035c/b070c0c8-1831-4a6b-a486-2cda2a322802.gif?h=20678cd8cbcc5a240e4a5e3c72686660",
+          "caption": ""
+        },
+        {
+          "type": "image",
+          "src": "https://cdn.myportfolio.com/a4d82523-17a0-44c3-b21b-d3aa8ccd035c/9c6a2461-fee4-4fec-8da3-65e4fdd7fdc5.gif?h=4dfc24208aa51ab2592b7372219e1e33",
+          "caption": ""
+        },
+        {
+          "type": "image",
+          "src": "https://cdn.myportfolio.com/a4d82523-17a0-44c3-b21b-d3aa8ccd035c/8130bd24-702a-454d-be7a-38755851efb7.gif?h=f816f599d1491fc8e1fbecc9b8854d87",
+          "caption": ""
+        },
+        {
+          "type": "image",
+          "src": "https://cdn.myportfolio.com/a4d82523-17a0-44c3-b21b-d3aa8ccd035c/21cfb244-5c8a-48c5-971b-4bfe05cc9ce9.gif?h=7901f005e0e8a7d2ac5a55954685fe1e",
+          "caption": ""
+        },
+        {
+          "type": "image",
+          "src": "https://cdn.myportfolio.com/a4d82523-17a0-44c3-b21b-d3aa8ccd035c/f9b17b8b-ee49-48c1-a4be-3bc95ce27f97.gif?h=3b69fe41465b831f5b423dc4bf1b66ca",
+          "caption": ""
+        },
+        {
+          "type": "image",
+          "src": "https://cdn.myportfolio.com/a4d82523-17a0-44c3-b21b-d3aa8ccd035c/a9ff61c5-aaab-46dd-bc63-6e1028d7cf28.gif?h=8d19735daf5b1d5c4fdd431e856eb938",
+          "caption": ""
+        },
+        {
+          "type": "image",
+          "src": "https://cdn.myportfolio.com/a4d82523-17a0-44c3-b21b-d3aa8ccd035c/49136a12-62cc-496a-acca-959776013882.gif?h=540d8aacf06748def66c653f0b97a2f6",
+          "caption": ""
+        },
+        {
+          "type": "image",
+          "src": "https://cdn.myportfolio.com/a4d82523-17a0-44c3-b21b-d3aa8ccd035c/2a79c69e-bd92-42df-8381-3ffdc0a43205.gif?h=c81361eaac94b867adf4342e446c1e43",
+          "caption": ""
+        },
+        {
+          "type": "image",
+          "src": "https://cdn.myportfolio.com/a4d82523-17a0-44c3-b21b-d3aa8ccd035c/afd6779e-d729-4abf-a1d7-e7fe93405926.gif?h=174404e37c949169336c38d3d13d6d5a",
+          "caption": ""
+        },
+        {
+          "type": "image",
+          "src": "https://cdn.myportfolio.com/a4d82523-17a0-44c3-b21b-d3aa8ccd035c/e2167439-77e6-4575-8d2e-e9f06192687a.gif?h=a02a137a5d1eac39f8ef93e1e3a46b46",
+          "caption": ""
+        },
+        {
+          "type": "image",
+          "src": "https://cdn.myportfolio.com/a4d82523-17a0-44c3-b21b-d3aa8ccd035c/ea9144d3-4a05-46c7-b270-7cb3601aaf28.gif?h=37fdc4508f81d3bec27a68bb3cfd5900",
+          "caption": ""
+        },
+        {
+          "type": "image",
+          "src": "https://cdn.myportfolio.com/a4d82523-17a0-44c3-b21b-d3aa8ccd035c/ec406657-5fc7-4fc2-9e4f-cc999bd3e5e5.gif?h=30b33a5f8e29e802149e6137c8f576e8",
+          "caption": ""
+        },
+        {
+          "type": "image",
+          "src": "https://cdn.myportfolio.com/a4d82523-17a0-44c3-b21b-d3aa8ccd035c/2ad125dc-0880-4e1e-ad32-0c736e2c9b46.gif?h=d53dfdfc926891bd7ae85d356ead91dc",
+          "caption": ""
+        },
+        {
+          "type": "image",
+          "src": "https://cdn.myportfolio.com/a4d82523-17a0-44c3-b21b-d3aa8ccd035c/2b4921f4-8779-45f8-b9fd-c550aacd60ba.gif?h=e4c99cf14953ba3f0c40190723fe4366",
+          "caption": ""
+        },
+        {
+          "type": "image",
+          "src": "https://cdn.myportfolio.com/a4d82523-17a0-44c3-b21b-d3aa8ccd035c/ea641b7a-4830-48e1-bdda-5dd982cbc31c.gif?h=86ce130a3aa3928b0e5ee2c8b9d9405f",
+          "caption": ""
+        }
+      ],
+      "summary": "Small animations that were used in videos and online to explain and illustrate a few functionalities and benefits from our app."
+    },
+    {
+      "slug": "e-commerce",
+      "cover": "https://cdn.myportfolio.com/a4d82523-17a0-44c3-b21b-d3aa8ccd035c/a1ffcfbd-569b-4b2f-a72a-9d255aaff238_car_4x3.png?h=5df1c55b8e190baf6f0ea76e1140a3db",
+      "title": "e-commerce",
+      "year": "2018",
+      "url": "https://felip.eu/e-commerce",
+      "modules": [
+        {
+          "type": "image",
+          "src": "https://cdn.myportfolio.com/a4d82523-17a0-44c3-b21b-d3aa8ccd035c/8cba6fd8-fcd7-4cbe-a0b1-107da9d0fced.png?h=4356080508602c1c09001dece91a9de3",
+          "caption": ""
+        },
+        {
+          "type": "text",
+          "text": "SCREEN MOCKUP (ref)\nMy first impression is that is a lot going on on this screen, and I tried to remove all the extra noise (including a small redesign of the nav bar, without the small resizing).\nI gave more focus on the product, keeping it bigger and removing the thumbnails of the other pictures. The idea is to have it sliding to change products and you can zoom in just hovering the image.\nMore focus on the action button could help driving sales, as we have a clear action to perform on this screen. I did an example of what should happen after you click. So you can stay on this screen and keep shopping or go to the checkout.\nOne approach that I think could benefit the conversion rates is to show all products as an e-commerce, rather than having them separated per sections. All products would be shown on the same screen, using filters, search and sort buttons to navigate between all of them. The screen I designed is the products page and should show other products, \"recommended products\" right after the one we choose."
+        }
+      ],
+      "summary": "SCREEN MOCKUP (ref)\nMy first impression is that is a lot going on on this screen, and I tried to remove all the extra noise (including a small redesign of the nav bar, without the small resizing).\nI gave more focus on the product, keeping it bigger and removing the thumbnails of the other pictures. The idea is to have it sliding to change products and you can zoom in just hovering the image.\nMore focus on the action button could help driving sales, as we have a clear action to perform on this screen. I did an example of what should happen after you click. So you can stay on this screen and keep shopping or go to the checkout.\nOne approach that I think could benefit the conversion rates is to show all products as an e-commerce, rather than having them separated per sections. All products would be shown on the same screen, using filters, search and sort buttons to navigate between all of them. The screen I designed is the products page and should show other products, \"recommended products\" right after the one we choose."
+    },
+    {
+      "slug": "customer-portal",
+      "cover": "https://cdn.myportfolio.com/a4d82523-17a0-44c3-b21b-d3aa8ccd035c/2d04afec-6645-4e7a-94bc-fb5146bf88ac_car_4x3.jpg?h=a80cfb437786750346b4e838ec4568e8",
+      "title": "Customer Portal",
+      "year": "2018",
+      "url": "https://felip.eu/customer-portal",
+      "modules": [
+        {
+          "type": "image",
+          "src": "https://cdn.myportfolio.com/a4d82523-17a0-44c3-b21b-d3aa8ccd035c/8c5aafba-5b3e-4c31-ad3a-0eb1a50056ac.png?h=df72dffa026de1670917fe611865809b",
+          "caption": ""
+        },
+        {
+          "type": "image",
+          "src": "https://cdn.myportfolio.com/a4d82523-17a0-44c3-b21b-d3aa8ccd035c/9526ce30-10a3-4b0d-835b-cccefd0ba8bb.png?h=7fca568f86f3df62cf4e0e96905d5aa3",
+          "caption": ""
+        },
+        {
+          "type": "image",
+          "src": "https://cdn.myportfolio.com/a4d82523-17a0-44c3-b21b-d3aa8ccd035c/76c02b36-c5c6-46cf-8ba4-6c487f9a1c8c.png?h=c509cc93466f763db5b7be2f736d6055",
+          "caption": ""
+        },
+        {
+          "type": "text",
+          "text": "Illustration from this genius: https://www.behance.net/gallery/47545125/Plato-Explanation-video\nSensitive details black taped. Internal mockup for a Patient Version of our app.\nIt gives the patient easy access to all future visits and all information related to the study."
+        }
+      ],
+      "summary": "Illustration from this genius: https://www.behance.net/gallery/47545125/Plato-Explanation-video\nSensitive details black taped. Internal mockup for a Patient Version of our app.\nIt gives the patient easy access to all future visits and all information related to the study."
+    },
+    {
+      "slug": "ab-testing",
+      "cover": "https://cdn.myportfolio.com/a4d82523-17a0-44c3-b21b-d3aa8ccd035c/f6e62219-6967-4273-accd-da6eb6761c0c_car_4x3.png?h=60e3122ff59d41ff86f7514ad5e4a503",
+      "title": "A/B Testing",
+      "year": "2018",
+      "url": "https://felip.eu/ab-testing",
+      "modules": [
+        {
+          "type": "text",
+          "text": "A/B Testing\nFirst round of A/B testing using Unbounce to manage the process and improve conversion using keyword targeted landing pages. A version was done for all Sexual Health tests and another to show all the categories we have.\nOther variants of this page are already in place to constant improve their performance."
+        },
+        {
+          "type": "image",
+          "src": "https://cdn.myportfolio.com/a4d82523-17a0-44c3-b21b-d3aa8ccd035c/ce21fe03-bdff-47fd-a4d4-bcf3bd7dc7a0.png?h=ccce4d039aa6d3790f751d4c4b803fe1",
+          "caption": ""
+        }
+      ],
+      "summary": "A/B Testing\nFirst round of A/B testing using Unbounce to manage the process and improve conversion using keyword targeted landing pages. A version was done for all Sexual Health tests and another to show all the categories we have.\nOther variants of this page are already in place to constant improve their performance."
+    },
+    {
+      "slug": "api-documentation",
+      "cover": "https://cdn.myportfolio.com/a4d82523-17a0-44c3-b21b-d3aa8ccd035c/40e5f3e2-d10e-4d28-9e9b-e57a9da2cec8_car_4x3.jpg?h=27fe088803a15e26096c3f8ac73cd1b3",
+      "title": "API documentation",
+      "year": "2018",
+      "url": "https://felip.eu/api-documentation",
+      "modules": [
+        {
+          "type": "text",
+          "text": "This always evolving document was done to help LetsGetChecked to help with the installation and usage of their brand new API. It includes graphs and diagrams and how to install and use their code calls, with snippets for each feature allowed in this version.\nI also created mockups representing each one of the calls."
+        },
+        {
+          "type": "image",
+          "src": "https://cdn.myportfolio.com/a4d82523-17a0-44c3-b21b-d3aa8ccd035c/4fe62bd6-3100-43e9-886a-5cf2bf1bbbde.png?h=ee820feb0c87ddc8cc52e46e974a1129",
+          "caption": ""
+        },
+        {
+          "type": "image",
+          "src": "https://cdn.myportfolio.com/a4d82523-17a0-44c3-b21b-d3aa8ccd035c/5a240b93-dfc1-4a0f-83a3-53ab26450427.jpg?h=97d1eac7b187902fe3ca7555f34bbf60",
+          "caption": ""
+        },
+        {
+          "type": "image",
+          "src": "https://cdn.myportfolio.com/a4d82523-17a0-44c3-b21b-d3aa8ccd035c/5363c9b6-9b54-4b04-9846-1e1d864275f9.jpg?h=0e783516e0908fdc69cd8608d120d406",
+          "caption": ""
+        },
+        {
+          "type": "image",
+          "src": "https://cdn.myportfolio.com/a4d82523-17a0-44c3-b21b-d3aa8ccd035c/a94e3b86-bf84-4e27-8a06-329e22cefd26.jpg?h=2ae6f43b4578e0051ab50fec6b43838e",
+          "caption": ""
+        }
+      ],
+      "summary": "This always evolving document was done to help LetsGetChecked to help with the installation and usage of their brand new API. It includes graphs and diagrams and how to install and use their code calls, with snippets for each feature allowed in this version.\nI also created mockups representing each one of the calls."
+    },
+    {
+      "slug": "body-illustrations",
+      "cover": "https://cdn.myportfolio.com/a4d82523-17a0-44c3-b21b-d3aa8ccd035c/c405991e-cb6f-4f38-8b98-fde4463babd6_car_4x3.png?h=86e1a56e00ad2c859bb977a29d0b69ee",
+      "title": "Body illustrations",
+      "year": "2018",
+      "url": "https://felip.eu/body-illustrations",
+      "modules": [
+        {
+          "type": "image",
+          "src": "https://cdn.myportfolio.com/a4d82523-17a0-44c3-b21b-d3aa8ccd035c/b93f2b8a-9c8e-4819-b0c9-6bedfa997556.png?h=1d7f8cba833860dfe4a3d5366844d331",
+          "caption": ""
+        },
+        {
+          "type": "text",
+          "text": "Illustration Support\nSeries of illustrations done to show specific body parts and how they're structured. This image should support our tests, and serving as support for the text explaining the biomarkers analysed.\nThe text on the right side is a placeholder done for the Thyroid test, the only one I didn't do."
+        },
+        {
+          "type": "image",
+          "src": "https://cdn.myportfolio.com/a4d82523-17a0-44c3-b21b-d3aa8ccd035c/cd1a01c5-4657-4fea-8b09-99e86da49d54.png?h=db92df84c90a476bc4d0f603ed4a8a70",
+          "caption": ""
+        },
+        {
+          "type": "image",
+          "src": "https://cdn.myportfolio.com/a4d82523-17a0-44c3-b21b-d3aa8ccd035c/b84c2bf0-3a28-4740-b6b9-2961edd0ec84.png?h=fef5e7f26a97bb394fabbee3abd6f283",
+          "caption": ""
+        },
+        {
+          "type": "image",
+          "src": "https://cdn.myportfolio.com/a4d82523-17a0-44c3-b21b-d3aa8ccd035c/090d4188-8c40-4a98-b209-066396aeb661.png?h=9b719d473823417e64590f154a56c868",
+          "caption": ""
+        },
+        {
+          "type": "image",
+          "src": "https://cdn.myportfolio.com/a4d82523-17a0-44c3-b21b-d3aa8ccd035c/43b0fc93-3c58-4d08-8d19-7bc85fe850b8.png?h=86e2f4fc19b8c7e26579a88543705144",
+          "caption": ""
+        },
+        {
+          "type": "image",
+          "src": "https://cdn.myportfolio.com/a4d82523-17a0-44c3-b21b-d3aa8ccd035c/6eb9b4b4-5d61-4e1e-b8ae-ce06cc4a5bb4.png?h=414ec91d976855c9e08183a6e57d9894",
+          "caption": ""
+        },
+        {
+          "type": "image",
+          "src": "https://cdn.myportfolio.com/a4d82523-17a0-44c3-b21b-d3aa8ccd035c/c2790b92-ffd2-4e43-b101-621588f0ff38.png?h=a79a38d8256181fc097344c4c7c92b2f",
+          "caption": ""
+        },
+        {
+          "type": "image",
+          "src": "https://cdn.myportfolio.com/a4d82523-17a0-44c3-b21b-d3aa8ccd035c/667a011d-a062-48cb-8e81-c1d6b94f7a3f.png?h=17c52dac93c99aca8d3fb17875f94807",
+          "caption": ""
+        },
+        {
+          "type": "image",
+          "src": "https://cdn.myportfolio.com/a4d82523-17a0-44c3-b21b-d3aa8ccd035c/62592a40-6e72-4e83-8809-b4e2de54942d.png?h=f87e49d1a46070a25cd5243f5a7ea730",
+          "caption": ""
+        },
+        {
+          "type": "image",
+          "src": "https://cdn.myportfolio.com/a4d82523-17a0-44c3-b21b-d3aa8ccd035c/bf0fbdc9-538e-4b1f-95af-749b126c7558.png?h=76a2341afa1ea00c8de75ceea6189e2c",
+          "caption": ""
+        },
+        {
+          "type": "image",
+          "src": "https://cdn.myportfolio.com/a4d82523-17a0-44c3-b21b-d3aa8ccd035c/3a1839c8-9c04-42f5-b631-43a94917cf73.png?h=5faec9b700bf79121afd0e95f3d43746",
+          "caption": ""
+        },
+        {
+          "type": "image",
+          "src": "https://cdn.myportfolio.com/a4d82523-17a0-44c3-b21b-d3aa8ccd035c/e01b8c43-5211-44ff-873d-d724a5119ce3.png?h=7d0cfcff9ee0f5addc501a8154220c21",
+          "caption": ""
+        },
+        {
+          "type": "image",
+          "src": "https://cdn.myportfolio.com/a4d82523-17a0-44c3-b21b-d3aa8ccd035c/1304c613-730f-423e-a98c-c8b09648e267.png?h=87e61fe1997b58f5457a1d0f4f31d882",
+          "caption": ""
+        },
+        {
+          "type": "image",
+          "src": "https://cdn.myportfolio.com/a4d82523-17a0-44c3-b21b-d3aa8ccd035c/b15d55ee-56f3-4ba4-94e8-ef30d67a81bb.png?h=1595f3cca52f4421cca12db9de2a3b3b",
+          "caption": ""
+        },
+        {
+          "type": "image",
+          "src": "https://cdn.myportfolio.com/a4d82523-17a0-44c3-b21b-d3aa8ccd035c/ba37a42f-7bd9-4eb1-85d1-9e9f7a538678.png?h=f5e5d2c497b19f49de65845815139bde",
+          "caption": ""
+        }
+      ],
+      "summary": "Illustration Support\nSeries of illustrations done to show specific body parts and how they're structured. This image should support our tests, and serving as support for the text explaining the biomarkers analysed.\nThe text on the right side is a placeholder done for the Thyroid test, the only one I didn't do."
+    },
+    {
+      "slug": "e-book",
+      "cover": "https://cdn.myportfolio.com/a4d82523-17a0-44c3-b21b-d3aa8ccd035c/5cd389d3-a66e-4127-96c0-a0122bfab765_car_4x3.png?h=8389d770962d9d8e755fd2f816ed1118",
+      "title": "e-Book",
+      "year": "2018",
+      "url": "https://felip.eu/e-book",
+      "modules": [
+        {
+          "type": "image",
+          "src": "https://cdn.myportfolio.com/a4d82523-17a0-44c3-b21b-d3aa8ccd035c/310f29ab-0990-4564-a25a-8516e1518072.jpg?h=64fa3ae20490e514c2c2c1b248bd59ec",
+          "caption": ""
+        },
+        {
+          "type": "image",
+          "src": "https://cdn.myportfolio.com/a4d82523-17a0-44c3-b21b-d3aa8ccd035c/f35d0dbc-fbf0-4f97-9e2a-b3eee55c0df1.png?h=a06ac21676dc3db070257fe714043b7a",
+          "caption": ""
+        },
+        {
+          "type": "image",
+          "src": "https://cdn.myportfolio.com/a4d82523-17a0-44c3-b21b-d3aa8ccd035c/83a5502c-fdae-473f-8e6d-0dfcb2162ea6.png?h=411a21587c446eaf805f4d7398c59180",
+          "caption": ""
+        },
+        {
+          "type": "image",
+          "src": "https://cdn.myportfolio.com/a4d82523-17a0-44c3-b21b-d3aa8ccd035c/3a1d7e02-dec3-41d2-8023-07e829a4182a.png?h=37b9c8b29ead7969c9d8699119c6fe61",
+          "caption": ""
+        }
+      ],
+      "summary": ""
+    },
+    {
+      "slug": "cart",
+      "cover": "https://cdn.myportfolio.com/a4d82523-17a0-44c3-b21b-d3aa8ccd035c/bf5c0d1a-7c5d-4612-bc94-536148d969cd_car_4x3.jpg?h=61a39bebdeb8b9a861514121a1d1256f",
+      "title": "Cart",
+      "year": "2018",
+      "url": "https://felip.eu/cart",
+      "modules": [
+        {
+          "type": "text",
+          "text": "This project was an exercise to see possibilities to our shopping cart and checkout process. The idea was to provide quick access to the customer's data (such as delivery information, payment details, etc), and to provide a better usability and use of the screen.\nEnabling the user to shop without creating an account first making the process faster and more inviting. The next step prompt them to create an account in order to get the results."
+        },
+        {
+          "type": "image",
+          "src": "https://cdn.myportfolio.com/a4d82523-17a0-44c3-b21b-d3aa8ccd035c/6d6eaa76-b63b-4b13-9fc2-c90f98cb044e.png?h=6f9bb4400cfbff2da5be456526c807d6",
+          "caption": ""
+        }
+      ],
+      "summary": "This project was an exercise to see possibilities to our shopping cart and checkout process. The idea was to provide quick access to the customer's data (such as delivery information, payment details, etc), and to provide a better usability and use of the screen.\nEnabling the user to shop without creating an account first making the process faster and more inviting. The next step prompt them to create an account in order to get the results."
+    },
+    {
+      "slug": "lgc-blog-illustrations",
+      "cover": "https://cdn.myportfolio.com/a4d82523-17a0-44c3-b21b-d3aa8ccd035c/8b6b6431-4e01-4b16-b05b-d3f9b154fbd1_car_4x3.png?h=111a86c7be7fa2f67f64e171081b6019",
+      "title": "LGC Blog Illustrations",
+      "year": "2018",
+      "url": "https://felip.eu/lgc-blog-illustrations",
+      "modules": [
+        {
+          "type": "text",
+          "text": "The Process"
+        },
+        {
+          "type": "text",
+          "text": "The idea was to develop illustrations for our blog posts, to standardise and to reinforce our brand within our blog, so it needed to follow some premises that we are trying to achieve throughout our design and communication.\nIt needed to be clean and medical, accurate but not methodical, clean but not empty, and a few others.\nThe main idea was to play with the silhouette and abstractions of the themes we're trying to show on our posts, but keeping clear that we know what is behind the abstraction we picked.\nThe first iteration was to have a clean silhouette, removing extra points to have it more fluid and organic, and adding a few details to give it more form.\nTo break the plain colour we used transparency and a overlay pattern to make it more playful, as sometimes the subject is quite delicate to show it graphically.\nHere are some of the illustration I did for this first iteration:"
+        },
+        {
+          "type": "image",
+          "src": "https://cdn.myportfolio.com/a4d82523-17a0-44c3-b21b-d3aa8ccd035c/b88f0944-0540-45e5-8e49-b001aacf0bba.png?h=7a063866c54fc11767d67141741c7f14",
+          "caption": ""
+        },
+        {
+          "type": "image",
+          "src": "https://cdn.myportfolio.com/a4d82523-17a0-44c3-b21b-d3aa8ccd035c/9894db44-e588-4d1c-8f44-60e65b63fe72.png?h=a2c0d69a82c3cee3a2533e079a30ce9c",
+          "caption": ""
+        },
+        {
+          "type": "text",
+          "text": "As we started to develop a new website, with a complete different flow and features, made sense to add more elements and complexity to the way the illustrations were done.\nWe tweaked the colours a bit to reflect the new main colour we started using and removed the pattern, to avoid too much noise.\nAlso a background colour was added to delimit the images when placed in a white background (the way our blog was).\nCheck the new version bellow:"
+        },
+        {
+          "type": "image",
+          "src": "https://cdn.myportfolio.com/a4d82523-17a0-44c3-b21b-d3aa8ccd035c/4ab5d7e3-4cc2-4dae-94fe-61389b7c9686.png?h=aacd808e6377756ccaf559b3be632d85",
+          "caption": ""
+        },
+        {
+          "type": "image",
+          "src": "https://cdn.myportfolio.com/a4d82523-17a0-44c3-b21b-d3aa8ccd035c/918e2cf9-56b1-449d-9e38-62380c7dec5d.png?h=901b20b8308dde60c3f4ef0c86dbd0fe",
+          "caption": ""
+        },
+        {
+          "type": "text",
+          "text": "You can check all the illustrations on: http://letsgetchecked.com/articles\nIf you liked, give a like.\nThanks for watching ;)"
+        }
+      ],
+      "summary": "The Process\n\nThe idea was to develop illustrations for our blog posts, to standardise and to reinforce our brand within our blog, so it needed to follow some premises that we are trying to achieve throughout our design and communication.\nIt needed to be clean and medical, accurate but not methodical, clean but not empty, and a few others.\nThe main idea was to play with the silhouette and abstractions of the themes we're trying to show on our posts, but keeping clear that we know what is behind the abstraction we picked.\nThe first iteration was to have a clean silhouette, removing extra points to have it more fluid and organic, and adding a few details to give it more form.\nTo break the plain colour we used transparency and a overlay pattern to make it more playful, as sometimes the subject is quite delicate to show it graphically.\nHere are some of the illustration I did for this first iteration:\n\nAs we started to develop a new website, with a complete different flow and features, made sense to add more elements and complexity to the way the illustrations were done.\nWe tweaked the colours a bit to reflect the new main colour we started using and removed the pattern, to avoid too much noise.\nAlso a background colour was added to delimit the images when placed in a white background (the way our blog was).\nCheck the new version bellow:\n\nYou can check all the illustrations on: http://letsgetchecked.com/articles\nIf you liked, give a like.\nThanks for watching ;)"
+    },
+    {
+      "slug": "small-animations-1",
+      "cover": "https://cdn.myportfolio.com/a4d82523-17a0-44c3-b21b-d3aa8ccd035c/5a23d257-a3be-411a-9111-4fb93b226104_car_4x3.png?h=efacd86f6684e05ef33d71acb8617623",
+      "title": "Small animations",
+      "year": "2019",
+      "url": "https://felip.eu/small-animations-1",
+      "modules": [
+        {
+          "type": "text",
+          "text": "A few small animations"
+        },
+        {
+          "type": "image",
+          "src": "https://cdn.myportfolio.com/a4d82523-17a0-44c3-b21b-d3aa8ccd035c/573df5ba-7845-49b1-b7e3-8c53b1f95390.gif?h=d0948bc190050f941bd714ff3ff47552",
+          "caption": ""
+        }
+      ],
+      "summary": "A few small animations"
+    },
+    {
+      "slug": "digital-painting",
+      "cover": "https://cdn.myportfolio.com/a4d82523-17a0-44c3-b21b-d3aa8ccd035c/dc341bde-f1ab-426f-99c9-658b6e869a89_car_4x3.jpg?h=d14252f5188d86327f7f32be61abe223",
+      "title": "Digital Painting",
+      "year": "2019",
+      "url": "https://felip.eu/digital-painting",
+      "modules": [
+        {
+          "type": "text",
+          "text": "Digital Painting"
+        },
+        {
+          "type": "image",
+          "src": "https://cdn.myportfolio.com/a4d82523-17a0-44c3-b21b-d3aa8ccd035c/7273dd53-2590-408c-90bb-276650fa376c.jpg?h=3270683a1b53b6963fab180c9851e6cb",
+          "caption": ""
+        },
+        {
+          "type": "image",
+          "src": "https://cdn.myportfolio.com/a4d82523-17a0-44c3-b21b-d3aa8ccd035c/9839b79c-d689-4bb9-bf2d-03ea2d827587.jpg?h=d45e72e09b62b58fae3b0b2f47780790",
+          "caption": ""
+        },
+        {
+          "type": "image",
+          "src": "https://cdn.myportfolio.com/a4d82523-17a0-44c3-b21b-d3aa8ccd035c/fbeb81dd-0666-4e34-86e5-d206817cf1b1.jpg?h=da765a50fe52efc58a6e6ba7031d935d",
+          "caption": ""
+        }
+      ],
+      "summary": "Digital Painting"
+    },
+    {
+      "slug": "ryanair-x",
+      "cover": "https://cdn.myportfolio.com/a4d82523-17a0-44c3-b21b-d3aa8ccd035c/57c27b7d-10cf-4dee-a87b-4680b54ed8c5_car_4x3.png?h=e9d0dc1d83200805b6a191c1a766c5a7",
+      "title": "Ryanair X",
+      "year": "2019",
+      "url": "https://felip.eu/ryanair-x",
+      "modules": [
+        {
+          "type": "text",
+          "text": "Ryanair X"
+        },
+        {
+          "type": "text",
+          "text": "A really fast exercise from last year to imagine how Ryanair would tackle Space Travel"
+        }
+      ],
+      "summary": "Ryanair X\n\nA really fast exercise from last year to imagine how Ryanair would tackle Space Travel"
+    },
+    {
+      "slug": "admin-dashboard",
+      "cover": "https://cdn.myportfolio.com/a4d82523-17a0-44c3-b21b-d3aa8ccd035c/51bb0180-504b-4a29-ba64-e9f0536b40f6_car_4x3.png?h=e95caf1280bc80da03626bff9ac9f49b",
+      "title": "Admin Dashboard",
+      "year": "2018",
+      "url": "https://felip.eu/admin-dashboard",
+      "modules": [
+        {
+          "type": "text",
+          "text": "This Dashboard was a test for the Admin side of our Patient Portal. The aim was to understand how to deal with all the information of the Portal and make it friendlier and easy to use."
+        },
+        {
+          "type": "image",
+          "src": "https://cdn.myportfolio.com/a4d82523-17a0-44c3-b21b-d3aa8ccd035c/ff165423-806e-4140-b141-f5a205be636c.png?h=8812b7c297b0ed3ec804023ced1c339b",
+          "caption": ""
+        }
+      ],
+      "summary": "This Dashboard was a test for the Admin side of our Patient Portal. The aim was to understand how to deal with all the information of the Portal and make it friendlier and easy to use."
+    },
+    {
+      "slug": "prototyping",
+      "cover": "https://cdn.myportfolio.com/a4d82523-17a0-44c3-b21b-d3aa8ccd035c/c6568b32-73bb-4b64-ac0c-ffb8ff48bf52_car_4x3.png?h=1e47d2c8582aba4dd752676b72594b38",
+      "title": "Admin dashboard",
+      "year": "2018",
+      "url": "https://felip.eu/prototyping",
+      "modules": [
+        {
+          "type": "image",
+          "src": "https://cdn.myportfolio.com/a4d82523-17a0-44c3-b21b-d3aa8ccd035c/21a7da2b-4075-49f4-aa71-d864886818d4.png?h=cb8a4dcc6d2d348f2080b28be5176de2",
+          "caption": ""
+        },
+        {
+          "type": "text",
+          "text": "Some iterations to check for usability and workflow of the Longboat's Admin Dashboard."
+        }
+      ],
+      "summary": "Some iterations to check for usability and workflow of the Longboat's Admin Dashboard."
+    },
+    {
+      "slug": "branding-escola-vila-alpha",
+      "cover": "https://cdn.myportfolio.com/a4d82523-17a0-44c3-b21b-d3aa8ccd035c/8b50a8cf-6d04-4846-b47c-1996ee44e032_car_4x3.png?h=fc7dd0a9f131014fb29b89b2f6151f25",
+      "title": "Branding Escola Vila Alpha",
+      "year": "2016",
+      "url": "https://felip.eu/branding-escola-vila-alpha",
+      "modules": [
+        {
+          "type": "image",
+          "src": "https://cdn.myportfolio.com/a4d82523-17a0-44c3-b21b-d3aa8ccd035c/1d27c7cb-1895-4768-a284-b705e0bbdb5c.png?h=11cee36a2ce4970c9d2d755f89c54ae1",
+          "caption": ""
+        },
+        {
+          "type": "text",
+          "text": "This is the conclusion work of the post graduation course in Branding and Brand Management in IED.\nThe study object, Vila Alpha School, works with kindergarten and elementary school. With the objective to identify the obstacles that impact the school growth, we conducted quantitative researchers with the general public, internal stakeholders, student's parents, former students and other collaborators, and qualitative research with the management.\nBased on the results gathered, we have identified some main problems: Lack of competitiveness to attract new students; bigger or more traditional schools are also located in the same region; difficulty to keep children from kindergarten to the elementary school, when the parents decide to move their sons to bigger schools to make the elementary and continue the high school in the same place.\nTo address this issues we research the local history, legislation, social and cultural behaviour, the socio-economical reality in the region, and benchmarked with other initiatives in Brasil and other countries.\nAs a result of this diagnosis, we have developed the Brand Strategy, focused on optimizing the strong points of the school: the quality of the education offered and the contact with nature, minimizing the weak points such as the matter of the visibility as well as the perceived status of the institution.\nWe have also pointed the public that the school should strengthen its communication, and we suggest some strategic actions, with the objective to maximize what the school has the best.\nFinally, we concluded that Vila Alpha School has potential to expand its activities and focus on different audiences which are in constant growth, and in order to achieve this objective, the first step would be the implementation of the directives suggested in this project, so the brand can transmit the values of this new stage of the school."
+        },
+        {
+          "type": "image",
+          "src": "https://cdn.myportfolio.com/a4d82523-17a0-44c3-b21b-d3aa8ccd035c/a94179ea-02f9-411a-8431-783de194c963.png?h=376111ca90d301eeeab605772dfc94b7",
+          "caption": ""
+        },
+        {
+          "type": "image",
+          "src": "https://cdn.myportfolio.com/a4d82523-17a0-44c3-b21b-d3aa8ccd035c/0a885bd8-e7ad-44e1-85b4-090689f1f4b9.png?h=db32db64c691250e9ebbb997cd1395cd",
+          "caption": ""
+        },
+        {
+          "type": "image",
+          "src": "https://cdn.myportfolio.com/a4d82523-17a0-44c3-b21b-d3aa8ccd035c/d93f8841-0e07-4c17-867c-fbc53ad15949.png?h=4ce3f622b3b1f73824d8de224cbd1dae",
+          "caption": ""
+        },
+        {
+          "type": "image",
+          "src": "https://cdn.myportfolio.com/a4d82523-17a0-44c3-b21b-d3aa8ccd035c/a57312d6-65f9-4dea-a9e5-fcc99fe28f67.png?h=110c161642e921030771d63c2394981c",
+          "caption": ""
+        },
+        {
+          "type": "image",
+          "src": "https://cdn.myportfolio.com/a4d82523-17a0-44c3-b21b-d3aa8ccd035c/639020c1-ccea-4163-9e84-9bf5a221c742.png?h=d36cb0bead005c07192e7786a886104f",
+          "caption": ""
+        }
+      ],
+      "summary": "This is the conclusion work of the post graduation course in Branding and Brand Management in IED.\nThe study object, Vila Alpha School, works with kindergarten and elementary school. With the objective to identify the obstacles that impact the school growth, we conducted quantitative researchers with the general public, internal stakeholders, student's parents, former students and other collaborators, and qualitative research with the management.\nBased on the results gathered, we have identified some main problems: Lack of competitiveness to attract new students; bigger or more traditional schools are also located in the same region; difficulty to keep children from kindergarten to the elementary school, when the parents decide to move their sons to bigger schools to make the elementary and continue the high school in the same place.\nTo address this issues we research the local history, legislation, social and cultural behaviour, the socio-economical reality in the region, and benchmarked with other initiatives in Brasil and other countries.\nAs a result of this diagnosis, we have developed the Brand Strategy, focused on optimizing the strong points of the school: the quality of the education offered and the contact with nature, minimizing the weak points such as the matter of the visibility as well as the perceived status of the institution.\nWe have also pointed the public that the school should strengthen its communication, and we suggest some strategic actions, with the objective to maximize what the school has the best.\nFinally, we concluded that Vila Alpha School has potential to expand its activities and focus on different audiences which are in constant growth, and in order to achieve this objective, the first step would be the implementation of the directives suggested in this project, so the brand can transmit the values of this new stage of the school."
+    },
+    {
+      "slug": "icons",
+      "cover": "https://cdn.myportfolio.com/a4d82523-17a0-44c3-b21b-d3aa8ccd035c/ba71056e-47ab-42ab-97ee-58b71793cc14_car_4x3.png?h=a8481345e443db96bfaefdd8296d1c31",
+      "title": "icons",
+      "year": "2018",
+      "url": "https://felip.eu/icons",
+      "modules": [
+        {
+          "type": "text",
+          "text": "Icons created for the Longboat's platform.\nAfter created, I imported into Glyphsapp to fix the anchors and get rid of the extra points, and created an otf, woff, woff2 font file to be used across the app."
+        },
+        {
+          "type": "image",
+          "src": "https://cdn.myportfolio.com/a4d82523-17a0-44c3-b21b-d3aa8ccd035c/9184d52d-b1fa-4079-aa73-84e70e4fc34a.png?h=b4c10c2c213567a2abe2618387343460",
+          "caption": ""
+        }
+      ],
+      "summary": "Icons created for the Longboat's platform.\nAfter created, I imported into Glyphsapp to fix the anchors and get rid of the extra points, and created an otf, woff, woff2 font file to be used across the app."
+    },
+    {
+      "slug": "tcas-online-concept",
+      "cover": "https://cdn.myportfolio.com/a4d82523-17a0-44c3-b21b-d3aa8ccd035c/a2f3574b-0644-435e-850d-83d32f63ef80_car_4x3.png?h=b82625636d51ac957945b8ca01074f79",
+      "title": "TCAS Online #concept",
+      "year": "2016",
+      "url": "https://felip.eu/tcas-online-concept",
+      "modules": [
+        {
+          "type": "image",
+          "src": "https://cdn.myportfolio.com/a4d82523-17a0-44c3-b21b-d3aa8ccd035c/eeaffe99-6fb4-4df5-811c-27b6cebe3df8.png?h=090185a81a2c0292d2933ad4e21dfb16",
+          "caption": ""
+        },
+        {
+          "type": "text",
+          "text": "Why?\nThe login screen should be clean, and reinforce the presence of TCAS Online in the many countries and cities, always with a good and nice picture from their skyline. We can use some location pins to say that some of the apartments of the view are available. Or we can use the pictures from the buildings itself.\nInside the Admin Panel, all the options should be visible in every menu, using high contrasts and different menu directions, the main one is vertical, and we use the horizontal one to support other options and make the “eye flow” more soft and comfortable. The same with the mobile option/ app.\n“Roboto” is a light font and have a good readability, and it’s free to use, so we can incorporate with google fonts. Due to the high density of information, the font can be a real asset for our goals and make the day-to-day user more assertive and smooth. And that’s why I tried to minimize other visual icons and visual pollution.\nThe main colour is the blue, because it is the colour of TCA Online, and inspire confidence and trust. And their light tones made the communication light and calm, what helps with the number of the options that we have to manage and to friendly to the user.\nThis is a study, and we need to check all the divisions of the menu. Shouldn’t occur that one menu or submenu leads to just one option. We have to try to think how can we put all the relevant pieces of information about a specific topic together. So as an exercise I removed some items from the main menu, so they can be adjusted to the settings, for example."
+        },
+        {
+          "type": "image",
+          "src": "https://cdn.myportfolio.com/a4d82523-17a0-44c3-b21b-d3aa8ccd035c/2635a6ff-e390-4546-a667-7b009d80451b.png?h=e2f87958c46d6488fee0e72838dfd87b",
+          "caption": ""
+        }
+      ],
+      "summary": "Why?\nThe login screen should be clean, and reinforce the presence of TCAS Online in the many countries and cities, always with a good and nice picture from their skyline. We can use some location pins to say that some of the apartments of the view are available. Or we can use the pictures from the buildings itself.\nInside the Admin Panel, all the options should be visible in every menu, using high contrasts and different menu directions, the main one is vertical, and we use the horizontal one to support other options and make the “eye flow” more soft and comfortable. The same with the mobile option/ app.\n“Roboto” is a light font and have a good readability, and it’s free to use, so we can incorporate with google fonts. Due to the high density of information, the font can be a real asset for our goals and make the day-to-day user more assertive and smooth. And that’s why I tried to minimize other visual icons and visual pollution.\nThe main colour is the blue, because it is the colour of TCA Online, and inspire confidence and trust. And their light tones made the communication light and calm, what helps with the number of the options that we have to manage and to friendly to the user.\nThis is a study, and we need to check all the divisions of the menu. Shouldn’t occur that one menu or submenu leads to just one option. We have to try to think how can we put all the relevant pieces of information about a specific topic together. So as an exercise I removed some items from the main menu, so they can be adjusted to the settings, for example."
+    },
+    {
+      "slug": "daily-ui",
+      "cover": "https://cdn.myportfolio.com/a4d82523-17a0-44c3-b21b-d3aa8ccd035c/d92e2b53-57a4-4219-aba0-e0208185bd32_car_4x3.png?h=9e13aefa9c336f85a0d132709e685ca4",
+      "title": "Daily UI",
+      "year": "2016",
+      "url": "https://felip.eu/daily-ui",
+      "modules": [
+        {
+          "type": "text",
+          "text": "Fearless updates to come."
+        },
+        {
+          "type": "image",
+          "src": "https://cdn.myportfolio.com/a4d82523-17a0-44c3-b21b-d3aa8ccd035c/5694fc50-2514-400c-89f8-453b2f9a92aa.png?h=856a11c8f659cd3953555c1b8a723dff",
+          "caption": "#011 dailyUI flash message"
+        },
+        {
+          "type": "image",
+          "src": "https://cdn.myportfolio.com/a4d82523-17a0-44c3-b21b-d3aa8ccd035c/dbf79850-9259-4da8-bc18-42f03ca17c80.gif?h=b9c298f25c49e0b4fab65d7c6d716a16",
+          "caption": "#DailyUI #010 Social Share."
+        },
+        {
+          "type": "image",
+          "src": "https://cdn.myportfolio.com/a4d82523-17a0-44c3-b21b-d3aa8ccd035c/33cbdd79-736d-43d9-96d2-3b24107f4d8b.png?h=03d71aee0909ddad1ab4218d64820508",
+          "caption": "#DailyUI #009 Music Player."
+        },
+        {
+          "type": "image",
+          "src": "https://cdn.myportfolio.com/a4d82523-17a0-44c3-b21b-d3aa8ccd035c/b75c88da-285c-41ce-8b1f-0035c430e365.png?h=b193ffd4d93212bfd7e7218558fe8026",
+          "caption": "#DailyUI #008 404 page. Didn't have much time for this one, but I like when we use political content for jokes. This is Lula, former brazilian president and accused of corruption."
+        },
+        {
+          "type": "image",
+          "src": "https://cdn.myportfolio.com/a4d82523-17a0-44c3-b21b-d3aa8ccd035c/1a85a47a-6bfd-4317-983d-aee674cdbecc.png?h=8fa8acce458eec5dc266e228e0a03325",
+          "caption": "#DailyUI #007 Settings screen for the death star. You can use this iconset at: https://dribbble.com/shots/1882177-Free-Sketch-Icon-Set   Thanks Maximilian"
+        },
+        {
+          "type": "image",
+          "src": "https://cdn.myportfolio.com/a4d82523-17a0-44c3-b21b-d3aa8ccd035c/d23adff9-f2a5-4c35-b357-af5e88449ed8.png?h=2ea33a4fbafaa41c20037e6fc177452b",
+          "caption": "#DailyUI #005 App icon. I love Google Keep, but I don't know why google insists to use transparency"
+        },
+        {
+          "type": "image",
+          "src": "https://cdn.myportfolio.com/a4d82523-17a0-44c3-b21b-d3aa8ccd035c/9c089076-1893-4830-8e38-b36c59a60663.gif?h=3c08a63f1b976cdced19cb4eeac7f99a",
+          "caption": "#DailyUI #004 Calculator (sorry for the lazy animation) - It's an app for iWatch that listen to you and respond with the results, so you can stay focused in your activities. I tried to keep the interface almost invisible."
+        },
+        {
+          "type": "image",
+          "src": "https://cdn.myportfolio.com/a4d82523-17a0-44c3-b21b-d3aa8ccd035c/207d00fb-90e6-44fe-ac66-5d165408194f.png?h=ca982e39997fa42687620320260856da",
+          "caption": "#DailyUI #003 Landing Page"
+        },
+        {
+          "type": "image",
+          "src": "https://cdn.myportfolio.com/a4d82523-17a0-44c3-b21b-d3aa8ccd035c/13caec17-3ba2-43f1-a3f6-ec06f27ff236.png?h=97e69a488dd7be3069cc0163d8375e64",
+          "caption": "#DailyUI #002 Credit Card Checkout"
+        },
+        {
+          "type": "image",
+          "src": "https://cdn.myportfolio.com/a4d82523-17a0-44c3-b21b-d3aa8ccd035c/bbfb0910-42cc-4011-a690-0ec55a4e50db.png?h=087334f6e81df3943d7d59231653dc0d",
+          "caption": "#DailyUI #001 SHIELD sign in"
+        }
+      ],
+      "summary": "Fearless updates to come."
+    },
+    {
+      "slug": "music-matters-mokation",
+      "cover": "https://cdn.myportfolio.com/a4d82523-17a0-44c3-b21b-d3aa8ccd035c/9c470680-e3fb-4aa4-ae10-4f84e6f367bc_car_4x3.png?h=eeb9ea00ebf6639cc0044e263b8ca9bb",
+      "title": "Music Matters - Mokation",
+      "year": "2016",
+      "url": "https://felip.eu/music-matters-mokation",
+      "modules": [
+        {
+          "type": "image",
+          "src": "https://cdn.myportfolio.com/a4d82523-17a0-44c3-b21b-d3aa8ccd035c/8dc38082-3b52-4733-bd17-47912192b8c8.png?h=b1686bdc789a106c2e0c4d4eb85e40b6",
+          "caption": ""
+        },
+        {
+          "type": "embed",
+          "src": "https://www.youtube.com/embed/9S8CnGHBwVY"
+        }
+      ],
+      "summary": ""
+    },
+    {
+      "slug": "magic-photo-gifts",
+      "cover": "https://cdn.myportfolio.com/a4d82523-17a0-44c3-b21b-d3aa8ccd035c/2d8f59c1-afcf-46d6-b01f-2f0cb6140508_car_4x3.png?h=5d5aa92d00f18297ef24c36826bfff6d",
+      "title": "Magic Photo Gifts",
+      "year": "2016",
+      "url": "https://felip.eu/magic-photo-gifts",
+      "modules": [
+        {
+          "type": "image",
+          "src": "https://cdn.myportfolio.com/a4d82523-17a0-44c3-b21b-d3aa8ccd035c/ea06d670-d576-4962-8941-a04879905d15.png?h=bf9f5f0dc4aa3efc4d9dc636df7f27e1",
+          "caption": ""
+        }
+      ],
+      "summary": ""
+    },
+    {
+      "slug": "david-plaza-hotel",
+      "cover": "https://cdn.myportfolio.com/a4d82523-17a0-44c3-b21b-d3aa8ccd035c/3aeebae2-5c99-49a2-b561-ff0af7ec1798_car_4x3.png?h=a54f0f40dd0f307ce741017ee3735802",
+      "title": "David Plaza Hotel",
+      "year": "2016",
+      "url": "https://felip.eu/david-plaza-hotel",
+      "modules": [
+        {
+          "type": "image",
+          "src": "https://cdn.myportfolio.com/a4d82523-17a0-44c3-b21b-d3aa8ccd035c/b03b7ccb-a918-4af6-910f-3c95a4f0f7f6.png?h=e00e2d3a1cc41442538109230d932194",
+          "caption": ""
+        }
+      ],
+      "summary": ""
+    },
+    {
+      "slug": "equiposhop",
+      "cover": "https://cdn.myportfolio.com/a4d82523-17a0-44c3-b21b-d3aa8ccd035c/6c8f034a-dfc3-4128-9eb7-6fa186890f81_car_4x3.png?h=c31e48aaaf1d9176a035ddd81ddfbeba",
+      "title": "Equiposhop",
+      "year": "2016",
+      "url": "https://felip.eu/equiposhop",
+      "modules": [
+        {
+          "type": "image",
+          "src": "https://cdn.myportfolio.com/a4d82523-17a0-44c3-b21b-d3aa8ccd035c/c9c05ed3-2b42-4aa7-81ab-a3df3b7ea452.png?h=1b9b2e7517adb8f7fa2c933f6a8ef628",
+          "caption": ""
+        },
+        {
+          "type": "image",
+          "src": "https://cdn.myportfolio.com/a4d82523-17a0-44c3-b21b-d3aa8ccd035c/a91f8aa0-34c2-49e2-a132-d7b9bb6948b3.png?h=d3b734c83d46d2a72522789827a95d43",
+          "caption": ""
+        },
+        {
+          "type": "embed",
+          "src": "https://www.youtube.com/embed/CND5Xe-1bZ4"
+        }
+      ],
+      "summary": ""
+    },
+    {
+      "slug": "cardelli-in-concert",
+      "cover": "https://cdn.myportfolio.com/a4d82523-17a0-44c3-b21b-d3aa8ccd035c/dbbe9dcd-45e2-48ff-a903-a7304db294a1_car_4x3.png?h=62d76796a0574b42a3cfd8baf3b5c062",
+      "title": "Cardelli in concert",
+      "year": "2016",
+      "url": "https://felip.eu/cardelli-in-concert",
+      "modules": [
+        {
+          "type": "text",
+          "text": "Great musician and personal friend. YOU HAVE TO HEAR: http://fabiocardelli.com.br/"
+        },
+        {
+          "type": "image",
+          "src": "https://cdn.myportfolio.com/a4d82523-17a0-44c3-b21b-d3aa8ccd035c/01160226-4ec3-40fc-841f-4cd1583f39c1.png?h=a1f1cd3eb58b02b9549ee33b2971667f",
+          "caption": ""
+        },
+        {
+          "type": "image",
+          "src": "https://cdn.myportfolio.com/a4d82523-17a0-44c3-b21b-d3aa8ccd035c/9aae9fe8-1796-4791-a49c-14be26551457.png?h=54919f8b669558447423d20dcbd49605",
+          "caption": ""
+        }
+      ],
+      "summary": "Great musician and personal friend. YOU HAVE TO HEAR: http://fabiocardelli.com.br/"
+    },
+    {
+      "slug": "agro-ravena-refresh",
+      "cover": "https://cdn.myportfolio.com/a4d82523-17a0-44c3-b21b-d3aa8ccd035c/afc1d7c7-cd95-421d-a02b-d18aaec62bc1_car_4x3.png?h=95e078bc50525e062d2118568379a555",
+      "title": "Agro Ravena Refresh",
+      "year": "2016",
+      "url": "https://felip.eu/agro-ravena-refresh",
+      "modules": [
+        {
+          "type": "text",
+          "text": "New look, new Life\nIn this project, we had to give a new look and star to build up the brand Agro Ravena. They had just started to sell their products online and felt that was the right time to refresh the brand and start to grow with more structure."
+        },
+        {
+          "type": "image",
+          "src": "https://cdn.myportfolio.com/a4d82523-17a0-44c3-b21b-d3aa8ccd035c/3cec7301-190a-4f38-95b5-107385ccd73a.png?h=07359303ccc38e25daa39d25c24deefe",
+          "caption": ""
+        }
+      ],
+      "summary": "New look, new Life\nIn this project, we had to give a new look and star to build up the brand Agro Ravena. They had just started to sell their products online and felt that was the right time to refresh the brand and start to grow with more structure."
+    },
+    {
+      "slug": "logofolio",
+      "cover": "https://cdn.myportfolio.com/a4d82523-17a0-44c3-b21b-d3aa8ccd035c/637f3151-8c87-44f5-b0ee-6159accfa894_car_4x3.png?h=a2319a994f8f3bd7f703381c1b995353",
+      "title": "Logofolio",
+      "year": "2016",
+      "url": "https://felip.eu/logofolio",
+      "modules": [
+        {
+          "type": "image",
+          "src": "https://cdn.myportfolio.com/a4d82523-17a0-44c3-b21b-d3aa8ccd035c/c2f147e6-80c8-4318-b845-4d0781bae34f.png?h=121568c945237d2fad208dad74b33027",
+          "caption": ""
+        },
+        {
+          "type": "image",
+          "src": "https://cdn.myportfolio.com/a4d82523-17a0-44c3-b21b-d3aa8ccd035c/30979ba3-8ab7-4977-974b-b45f370274a4.png?h=76d8f3648e20d612f6cccaf4bf2d358e",
+          "caption": ""
+        },
+        {
+          "type": "image",
+          "src": "https://cdn.myportfolio.com/a4d82523-17a0-44c3-b21b-d3aa8ccd035c/ea67f5c3-7c69-434d-9d9d-e7212c80f62d.png?h=c6f18efb124b38705570fba66e673f47",
+          "caption": ""
+        },
+        {
+          "type": "image",
+          "src": "https://cdn.myportfolio.com/a4d82523-17a0-44c3-b21b-d3aa8ccd035c/687d11e6-5048-4429-9096-f09e3d016901.png?h=6d19c78040ac0f53a2a0e8ac95a224f5",
+          "caption": ""
+        },
+        {
+          "type": "image",
+          "src": "https://cdn.myportfolio.com/a4d82523-17a0-44c3-b21b-d3aa8ccd035c/c2fddb56-2036-4906-adc6-0583597adb34.png?h=1a297d31da2013fb1002c8ccfeef11bd",
+          "caption": ""
+        },
+        {
+          "type": "image",
+          "src": "https://cdn.myportfolio.com/a4d82523-17a0-44c3-b21b-d3aa8ccd035c/60fc1f74-43f7-438c-acea-304b9f2e4d89.png?h=c9d91427adffaed77cf0712ca6f6b3e9",
+          "caption": ""
+        },
+        {
+          "type": "image",
+          "src": "https://cdn.myportfolio.com/a4d82523-17a0-44c3-b21b-d3aa8ccd035c/67ffcec3-1671-4d74-9801-328221a9d656.png?h=bf74298e34849e1510434f0bde387176",
+          "caption": ""
+        },
+        {
+          "type": "image",
+          "src": "https://cdn.myportfolio.com/a4d82523-17a0-44c3-b21b-d3aa8ccd035c/ece0c644-794b-4629-b6be-e822736c170e.png?h=ff4d53b233bd7a0894567c30ee6749b4",
+          "caption": ""
+        },
+        {
+          "type": "image",
+          "src": "https://cdn.myportfolio.com/a4d82523-17a0-44c3-b21b-d3aa8ccd035c/baf9cca0-f767-4d1e-a017-da8523797d1e.png?h=10cc5990b425b5728c9b5e3eec22edc1",
+          "caption": ""
+        },
+        {
+          "type": "image",
+          "src": "https://cdn.myportfolio.com/a4d82523-17a0-44c3-b21b-d3aa8ccd035c/4cd2917a-df02-44c7-87bb-daa50bc81d9f.png?h=d4b1e95e6a00a6666fc829c255971123",
+          "caption": ""
+        },
+        {
+          "type": "image",
+          "src": "https://cdn.myportfolio.com/a4d82523-17a0-44c3-b21b-d3aa8ccd035c/54541ebc-4649-4f2c-8985-1bd0436d44d4.png?h=1da3d0318ad869588976379c9101ac81",
+          "caption": ""
+        },
+        {
+          "type": "image",
+          "src": "https://cdn.myportfolio.com/a4d82523-17a0-44c3-b21b-d3aa8ccd035c/49b029a5-7f7b-4f55-846d-48f6644f717b.png?h=e8b4609a19f070d2dcb50775d68f50c7",
+          "caption": ""
+        },
+        {
+          "type": "image",
+          "src": "https://cdn.myportfolio.com/a4d82523-17a0-44c3-b21b-d3aa8ccd035c/d2eae45c-bb44-4832-b6f2-3b67b5174a6e.png?h=ff2f4f2f1fd34429921738bf755584b4",
+          "caption": ""
+        },
+        {
+          "type": "image",
+          "src": "https://cdn.myportfolio.com/a4d82523-17a0-44c3-b21b-d3aa8ccd035c/ceb15f0e-daf5-4d57-a85f-8316bee8003b.png?h=9088e3ca43e24babfd4cbbc947fa366c",
+          "caption": ""
+        },
+        {
+          "type": "image",
+          "src": "https://cdn.myportfolio.com/a4d82523-17a0-44c3-b21b-d3aa8ccd035c/c615c6d2-34d1-4e3b-aef9-73d370d907c4.png?h=074c6143947f71d150c654f0bdeebe22",
+          "caption": ""
+        },
+        {
+          "type": "image",
+          "src": "https://cdn.myportfolio.com/a4d82523-17a0-44c3-b21b-d3aa8ccd035c/86e66f57-afe3-4580-a2f8-742d8620878f.png?h=60a8e4c1f7b5f8ca8ca0046afb258c84",
+          "caption": ""
+        },
+        {
+          "type": "image",
+          "src": "https://cdn.myportfolio.com/a4d82523-17a0-44c3-b21b-d3aa8ccd035c/71af19e9-8676-4fa8-a35d-43c027de5954.png?h=72c4af638826c2c3e0e29fdffba1cf40",
+          "caption": ""
+        },
+        {
+          "type": "image",
+          "src": "https://cdn.myportfolio.com/a4d82523-17a0-44c3-b21b-d3aa8ccd035c/29be51e5-0b6d-4f3f-9699-d812fbedad0f.png?h=b22b8c60262dbe5b512533df88bb03ab",
+          "caption": ""
+        },
+        {
+          "type": "image",
+          "src": "https://cdn.myportfolio.com/a4d82523-17a0-44c3-b21b-d3aa8ccd035c/4843d494-5901-4153-85a1-1663e4e87247.png?h=4314ed10890086012e09492aa55b4ef6",
+          "caption": ""
+        }
+      ],
+      "summary": ""
+    },
+    {
+      "slug": "ci-exchange",
+      "cover": "https://cdn.myportfolio.com/a4d82523-17a0-44c3-b21b-d3aa8ccd035c/e3b29c54-9106-426c-afa0-51dd7aa4540b_car_4x3.png?h=4e51372a78b43d303a7628ccd7bacf79",
+      "title": "CI - exchange",
+      "year": "2016",
+      "url": "https://felip.eu/ci-exchange",
+      "modules": [
+        {
+          "type": "image",
+          "src": "https://cdn.myportfolio.com/a4d82523-17a0-44c3-b21b-d3aa8ccd035c/eeb9e498-be52-4df4-ad89-0a21cfd9a871.png?h=c509200369932a875a9d29f1d4098755",
+          "caption": ""
+        },
+        {
+          "type": "image",
+          "src": "https://cdn.myportfolio.com/a4d82523-17a0-44c3-b21b-d3aa8ccd035c/f63309ee-80ba-4142-b9b8-21aa66131ef6.png?h=e35a2e24e19f73cc3eb219fbba789880",
+          "caption": ""
+        }
+      ],
+      "summary": ""
+    },
+    {
+      "slug": "e-cadeiras-presentation-video",
+      "cover": "https://cdn.myportfolio.com/a4d82523-17a0-44c3-b21b-d3aa8ccd035c/0372e1a0-c3aa-4979-81e0-1cb5eddff890_car_4x3.png?h=c91d63ee28090fd5ab9b4bab63025a76",
+      "title": "E-Cadeiras presentation video",
+      "year": "2016",
+      "url": "https://felip.eu/e-cadeiras-presentation-video",
+      "modules": [
+        {
+          "type": "text",
+          "text": "See others videos on my vimeo"
+        }
+      ],
+      "summary": "See others videos on my vimeo"
+    },
+    {
+      "slug": "photo-restoration",
+      "cover": "https://cdn.myportfolio.com/a4d82523-17a0-44c3-b21b-d3aa8ccd035c/c9fefa80-d329-4d88-9597-4bb348cd4d9a_car_4x3.png?h=1d9186bb03f471126d43031b3031607d",
+      "title": "Photo Restoration",
+      "year": "2016",
+      "url": "https://felip.eu/photo-restoration",
+      "modules": [
+        {
+          "type": "image",
+          "src": "https://cdn.myportfolio.com/a4d82523-17a0-44c3-b21b-d3aa8ccd035c/5b50e7f7-1ab3-44a7-ba4b-f4fc9619d609.png?h=5d609078325ef45cd7fa7ddb32e13b7f",
+          "caption": ""
+        },
+        {
+          "type": "image",
+          "src": "https://cdn.myportfolio.com/a4d82523-17a0-44c3-b21b-d3aa8ccd035c/90210754-d354-41ce-9ddd-e786d736ca20.png?h=f38166f306a57269f6c6b03e3630c0d2",
+          "caption": ""
+        },
+        {
+          "type": "image",
+          "src": "https://cdn.myportfolio.com/a4d82523-17a0-44c3-b21b-d3aa8ccd035c/12ac773e-769b-4e5f-8af9-c2b2345dd510.png?h=6876946f115cf034a6886f62eba0cb4f",
+          "caption": ""
+        },
+        {
+          "type": "image",
+          "src": "https://cdn.myportfolio.com/a4d82523-17a0-44c3-b21b-d3aa8ccd035c/f0987707-2d77-4a5d-bec3-2e2e03f3be4f.png?h=ba94b15ce0e9f9db1729d9be8a86ac40",
+          "caption": ""
+        },
+        {
+          "type": "image",
+          "src": "https://cdn.myportfolio.com/a4d82523-17a0-44c3-b21b-d3aa8ccd035c/59622cd7-cea3-4e71-8aac-154a9bae09b2.png?h=db1e218c5b1b5b2390e5a440797b186b",
+          "caption": ""
+        },
+        {
+          "type": "image",
+          "src": "https://cdn.myportfolio.com/a4d82523-17a0-44c3-b21b-d3aa8ccd035c/4acaee5a-67c0-4e0d-8194-b47de12fbd66.png?h=c2fcf857df2b11a6aa58a6ded5cd5448",
+          "caption": ""
+        },
+        {
+          "type": "image",
+          "src": "https://cdn.myportfolio.com/a4d82523-17a0-44c3-b21b-d3aa8ccd035c/36ab4408-e36b-46a6-9deb-3ac924087c19.png?h=023f09c07fb5fe6a90954e799bea4073",
+          "caption": ""
+        },
+        {
+          "type": "image",
+          "src": "https://cdn.myportfolio.com/a4d82523-17a0-44c3-b21b-d3aa8ccd035c/5405743d-13e9-4029-83db-666281c13c73.png?h=c9a659402b55ae0e81584b9c8fa8dd67",
+          "caption": ""
+        },
+        {
+          "type": "image",
+          "src": "https://cdn.myportfolio.com/a4d82523-17a0-44c3-b21b-d3aa8ccd035c/579b05e5-4732-45ee-b7e5-bc1927934e62.png?h=7661582f4ad7d4d1eb64bc9c32985bf3",
+          "caption": ""
+        }
+      ],
+      "summary": ""
+    }
+  ]
+}

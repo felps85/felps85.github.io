@@ -1,0 +1,12 @@
+{
+  "name": "felip-portfolio",
+  "private": true,
+  "version": "1.0.0",
+  "description": "Static GitHub Pages rebuild of felip.eu",
+  "scripts": {
+    "scrape": "node scripts/scrape-site.mjs",
+    "download-assets": "node scripts/download-assets.mjs",
+    "build": "node scripts/build-site.mjs",
+    "generate": "npm run scrape && npm run download-assets && npm run build"
+  }
+}
