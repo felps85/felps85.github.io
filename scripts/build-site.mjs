@@ -254,7 +254,12 @@ const homeBody = `
       <section class="intro-section">
         <p class="eyebrow">Felipe Soares</p>
         <div class="intro-main">
-          <h1>Product design for digital products, systems, and brand moments.</h1>
+          <h1>
+            <span>Product design</span>
+            <span>for digital products,</span>
+            <span>systems, and</span>
+            <span>brand moments.</span>
+          </h1>
           <div class="intro-links" aria-label="Social links">${introSocials}</div>
         </div>
       </section>
@@ -598,10 +603,10 @@ main {
 
 .intro-section {
   display: grid;
-  grid-template-columns: minmax(10rem, 0.7fr) minmax(0, 1.3fr);
-  gap: 1.5rem 4rem;
+  grid-template-columns: 1fr;
+  gap: 1.75rem;
   min-height: 80svh;
-  align-items: center;
+  align-content: center;
   padding: 2.5rem 0 4rem;
 }
 
@@ -614,15 +619,20 @@ main {
   display: grid;
   align-content: center;
   gap: 1.5rem;
+  max-width: min(100%, 86rem);
 }
 
 .intro-section h1 {
   margin: 0;
-  max-width: 11ch;
+  max-width: none;
   font-family: var(--serif);
-  font-size: clamp(2.9rem, 5.8vw, 5.1rem);
+  font-size: clamp(3.2rem, 7.1vw, 6.9rem);
   line-height: 0.95;
   letter-spacing: -0.06em;
+}
+
+.intro-section h1 span {
+  display: block;
 }
 
 .intro-links,
@@ -1107,7 +1117,6 @@ figcaption {
 }
 
 @media (max-width: 1100px) {
-  .intro-section,
   .featured-project,
   .about-section {
     grid-template-columns: 1fr;
@@ -1115,10 +1124,6 @@ figcaption {
 
   .intro-section {
     gap: 1rem;
-  }
-
-  .intro-section .eyebrow {
-    padding-top: 0;
   }
 
   .featured-project-reverse .featured-copy,
