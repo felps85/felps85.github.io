@@ -1,0 +1,157 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Simple page analytics for Felipe Soares portfolio." />
+    <title>Analytics | Felipe Soares</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&family=Raleway:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="../styles.css" />
+  </head>
+  <body>
+    
+  <div class="page-shell">
+    
+    <header class="site-header">
+      <a class="brand" aria-label="Felipe Soares" href="../../index.html">FS<span class="brand-dot">.</span></a>
+      <nav class="site-nav" aria-label="Primary">
+        <a href="../../index.html#design">Design</a>
+        <a href="../../index.html#about">About</a>
+        <a href="../../index.html#contact">Contact</a>
+      </nav>
+    </header>
+  
+    <main class="analytics-page">
+      <section class="analytics-hero">
+        <p class="eyebrow">Analytics</p>
+        <h1>Simple page analytics</h1>
+        <p class="analytics-note">This is a lightweight pageview tracker for the portfolio and its project pages. Counts update as pages are visited and project modals are opened from the homepage.</p>
+      </section>
+
+      <section class="analytics-panel">
+        <div class="analytics-total-card">
+          <span>Total tracked views</span>
+          <strong id="analytics-total">...</strong>
+        </div>
+        <div class="analytics-list" id="analytics-list"></div>
+        <p class="analytics-error" id="analytics-error" hidden>Analytics could not be loaded right now.</p>
+      </section>
+    </main>
+  </div>
+  <script>
+    (() => {
+      const namespace = "felip-eu-portfolio";
+      const pages = [{"label":"Home","route":"/"},{"label":"Analytics","route":"/analytics/"},{"label":"Pension account","route":"/projects/pension-account/"},{"label":"Savings account","route":"/projects/savings-account/"},{"label":"Open Banking","route":"/projects/open-banking/"},{"label":"Discovery missions","route":"/projects/discovery-missions/"},{"label":"Dimply admin (sample)","route":"/projects/dimply-admin-old-sample/"},{"label":"Dimply (preview)","route":"/projects/dimply-preview/"},{"label":"Mortgage Viewer","route":"/projects/mortgage-viewer/"},{"label":"Gmail for work","route":"/projects/gmail-for-work/"},{"label":"Apple Health - Improve DAU","route":"/projects/apple-health-improve-dau/"},{"label":"Ryanair Rooms","route":"/projects/ryanair-rooms/"},{"label":"Aer Lingus","route":"/projects/aer-lingus/"},{"label":"Small Animations","route":"/projects/small-animations/"},{"label":"e-commerce","route":"/projects/e-commerce/"},{"label":"Customer Portal","route":"/projects/customer-portal/"},{"label":"A/B Testing","route":"/projects/ab-testing/"},{"label":"API documentation","route":"/projects/api-documentation/"},{"label":"Body illustrations","route":"/projects/body-illustrations/"},{"label":"e-Book","route":"/projects/e-book/"},{"label":"Cart","route":"/projects/cart/"},{"label":"LGC Blog Illustrations","route":"/projects/lgc-blog-illustrations/"},{"label":"Small animations","route":"/projects/small-animations-1/"},{"label":"Digital Painting","route":"/projects/digital-painting/"},{"label":"Ryanair X","route":"/projects/ryanair-x/"},{"label":"Admin Dashboard","route":"/projects/admin-dashboard/"},{"label":"Admin dashboard","route":"/projects/prototyping/"},{"label":"Branding Escola Vila Alpha","route":"/projects/branding-escola-vila-alpha/"},{"label":"icons","route":"/projects/icons/"},{"label":"TCAS Online #concept","route":"/projects/tcas-online-concept/"},{"label":"Daily UI","route":"/projects/daily-ui/"},{"label":"Music Matters - Mokation","route":"/projects/music-matters-mokation/"},{"label":"Magic Photo Gifts","route":"/projects/magic-photo-gifts/"},{"label":"David Plaza Hotel","route":"/projects/david-plaza-hotel/"},{"label":"Equiposhop","route":"/projects/equiposhop/"},{"label":"Cardelli in concert","route":"/projects/cardelli-in-concert/"},{"label":"Agro Ravena Refresh","route":"/projects/agro-ravena-refresh/"},{"label":"Logofolio","route":"/projects/logofolio/"},{"label":"CI - exchange","route":"/projects/ci-exchange/"},{"label":"E-Cadeiras presentation video","route":"/projects/e-cadeiras-presentation-video/"},{"label":"Photo Restoration","route":"/projects/photo-restoration/"}];
+      const totalEl = document.getElementById("analytics-total");
+      const listEl = document.getElementById("analytics-list");
+      const errorEl = document.getElementById("analytics-error");
+
+      function counterName(route) {
+        const normalized = (route || "/").replace(/\/index\.html$/, "/").replace(/\/+/g, "/");
+        if (normalized === "/" || normalized === "") return "home";
+        const routeWithSlash = normalized.endsWith("/") ? normalized : normalized + "/";
+        return routeWithSlash
+          .replace(/^\//, "")
+          .replace(/\/$/, "")
+          .toLowerCase()
+          .replace(/[^a-z0-9/_-]+/g, "-")
+          .replace(/\//g, "__");
+      }
+
+      function fetchCount(route) {
+        const url =
+          "https://api.counterapi.dev/v1/" +
+          encodeURIComponent(namespace) +
+          "/" +
+          encodeURIComponent(counterName(route)) +
+          "/";
+
+        return fetch(url)
+          .then((response) => {
+            if (!response.ok) throw new Error("Bad response");
+            return response.json();
+          })
+          .then((json) => Number(json.count || 0));
+      }
+
+      Promise.all(
+        pages.map(async (page) => ({
+          ...page,
+          count: await fetchCount(page.route)
+        }))
+      )
+        .then((results) => {
+          const sorted = results.slice().sort((a, b) => b.count - a.count || a.label.localeCompare(b.label));
+          const total = sorted.reduce((sum, item) => sum + item.count, 0);
+          totalEl.textContent = total.toLocaleString();
+          listEl.innerHTML = sorted
+            .map(
+              (item) =>
+                '<article class="analytics-item">' +
+                  '<div>' +
+                    '<p class="analytics-item-label">' + item.label.replace(/[&<>"]/g, (char) => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[char])) + '</p>' +
+                    '<p class="analytics-item-route">' + item.route.replace(/[&<>"]/g, (char) => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[char])) + '</p>' +
+                  '</div>' +
+                  '<strong>' + item.count.toLocaleString() + '</strong>' +
+                '</article>'
+            )
+            .join("");
+        })
+        .catch(() => {
+          totalEl.textContent = "--";
+          errorEl.hidden = false;
+        });
+    })();
+  </script>
+
+    
+    <script>
+      (() => {
+        const namespace = "felip-eu-portfolio";
+        const trackedRoutes = new Set();
+
+        function normalizeRoute(route) {
+          const trimmed = (route || "/").replace(/\/index\.html$/, "/").replace(/\/+/g, "/");
+          if (trimmed === "/" || trimmed === "") return "/";
+          return trimmed.endsWith("/") ? trimmed : trimmed + "/";
+        }
+
+        function counterName(route) {
+          const normalized = normalizeRoute(route);
+          if (normalized === "/") return "home";
+          return normalized
+            .replace(/^\//, "")
+            .replace(/\/$/, "")
+            .toLowerCase()
+            .replace(/[^a-z0-9/_-]+/g, "-")
+            .replace(/\//g, "__");
+        }
+
+        function trackPageView(route) {
+          const normalized = normalizeRoute(route);
+          if (trackedRoutes.has(normalized)) return;
+          trackedRoutes.add(normalized);
+
+          const url =
+            "https://api.counterapi.dev/v1/" +
+            encodeURIComponent(namespace) +
+            "/" +
+            encodeURIComponent(counterName(normalized)) +
+            "/up/";
+
+          fetch(url, { method: "GET", keepalive: true }).catch(() => {});
+        }
+
+        window.__FS_ANALYTICS__ = {
+          namespace,
+          trackPageView
+        };
+
+        trackPageView(window.location.pathname);
+      })();
+    </script>
+  
+  </body>
+</html>

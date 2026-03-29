@@ -112,5 +112,52 @@
       </main>
     </div>
   
+    
+    <script>
+      (() => {
+        const namespace = "felip-eu-portfolio";
+        const trackedRoutes = new Set();
+
+        function normalizeRoute(route) {
+          const trimmed = (route || "/").replace(/\/index\.html$/, "/").replace(/\/+/g, "/");
+          if (trimmed === "/" || trimmed === "") return "/";
+          return trimmed.endsWith("/") ? trimmed : trimmed + "/";
+        }
+
+        function counterName(route) {
+          const normalized = normalizeRoute(route);
+          if (normalized === "/") return "home";
+          return normalized
+            .replace(/^\//, "")
+            .replace(/\/$/, "")
+            .toLowerCase()
+            .replace(/[^a-z0-9/_-]+/g, "-")
+            .replace(/\//g, "__");
+        }
+
+        function trackPageView(route) {
+          const normalized = normalizeRoute(route);
+          if (trackedRoutes.has(normalized)) return;
+          trackedRoutes.add(normalized);
+
+          const url =
+            "https://api.counterapi.dev/v1/" +
+            encodeURIComponent(namespace) +
+            "/" +
+            encodeURIComponent(counterName(normalized)) +
+            "/up/";
+
+          fetch(url, { method: "GET", keepalive: true }).catch(() => {});
+        }
+
+        window.__FS_ANALYTICS__ = {
+          namespace,
+          trackPageView
+        };
+
+        trackPageView(window.location.pathname);
+      })();
+    </script>
+  
   </body>
 </html>

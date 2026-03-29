@@ -5,6 +5,8 @@ const data = JSON.parse(readFileSync(path.resolve("data/portfolio.json"), "utf8"
 const assetsManifestPath = path.resolve("data/assets.json");
 const outputDir = path.resolve("docs");
 const projectsDir = path.join(outputDir, "projects");
+const analyticsDir = path.join(outputDir, "analytics");
+const ANALYTICS_NAMESPACE = "felip-eu-portfolio";
 let assets = { covers: {}, modules: {}, embeds: {} };
 
 try {
@@ -13,6 +15,7 @@ try {
 
 mkdirSync(outputDir, { recursive: true });
 mkdirSync(projectsDir, { recursive: true });
+mkdirSync(analyticsDir, { recursive: true });
 
 function escapeHtml(value = "") {
   return value
@@ -82,6 +85,81 @@ function assetPath(value, depth = 0) {
   return `${"../".repeat(depth)}${value}`;
 }
 
+function normalizeAnalyticsRoute(route = "/") {
+  const trimmed = route.replace(/\/index\.html$/, "/").replace(/\/+/g, "/");
+  if (trimmed === "/" || trimmed === "") return "/";
+  return trimmed.endsWith("/") ? trimmed : `${trimmed}/`;
+}
+
+function analyticsCounterName(route = "/") {
+  const normalized = normalizeAnalyticsRoute(route);
+  if (normalized === "/") return "home";
+  return normalized
+    .replace(/^\/|\/$/g, "")
+    .toLowerCase()
+    .replace(/[^a-z0-9/_-]+/g, "-")
+    .replace(/\//g, "__");
+}
+
+const analyticsPages = [
+  { label: "Home", route: "/" },
+  { label: "Analytics", route: "/analytics/" },
+  ...data.projects.map((project) => ({
+    label: project.title,
+    route: `/projects/${project.slug}/`
+  }))
+];
+
+function renderAnalyticsBootstrap() {
+  return `
+    <script>
+      (() => {
+        const namespace = ${JSON.stringify(ANALYTICS_NAMESPACE)};
+        const trackedRoutes = new Set();
+
+        function normalizeRoute(route) {
+          const trimmed = (route || "/").replace(/\\/index\\.html$/, "/").replace(/\\/+/g, "/");
+          if (trimmed === "/" || trimmed === "") return "/";
+          return trimmed.endsWith("/") ? trimmed : trimmed + "/";
+        }
+
+        function counterName(route) {
+          const normalized = normalizeRoute(route);
+          if (normalized === "/") return "home";
+          return normalized
+            .replace(/^\\//, "")
+            .replace(/\\/$/, "")
+            .toLowerCase()
+            .replace(/[^a-z0-9/_-]+/g, "-")
+            .replace(/\\//g, "__");
+        }
+
+        function trackPageView(route) {
+          const normalized = normalizeRoute(route);
+          if (trackedRoutes.has(normalized)) return;
+          trackedRoutes.add(normalized);
+
+          const url =
+            "https://api.counterapi.dev/v1/" +
+            encodeURIComponent(namespace) +
+            "/" +
+            encodeURIComponent(counterName(normalized)) +
+            "/up/";
+
+          fetch(url, { method: "GET", keepalive: true }).catch(() => {});
+        }
+
+        window.__FS_ANALYTICS__ = {
+          namespace,
+          trackPageView
+        };
+
+        trackPageView(window.location.pathname);
+      })();
+    </script>
+  `;
+}
+
 function projectCover(project) {
   return assets.covers?.[project.slug] || project.cover;
 }
@@ -114,6 +192,7 @@ function layout({ title, description, body, depth = 0 }) {
   </head>
   <body>
     ${body}
+    ${renderAnalyticsBootstrap()}
   </body>
 </html>
 `;
@@ -341,6 +420,7 @@ const homeBody = `
         modal.hidden = false;
         document.body.classList.add("modal-open");
         history.replaceState(null, "", "#project-" + slug);
+        window.__FS_ANALYTICS__?.trackPageView("/projects/" + slug + "/");
       }
 
       function closeProject() {
@@ -420,6 +500,103 @@ for (const project of data.projects) {
     })
   );
 }
+
+const analyticsBody = `
+  <div class="page-shell">
+    ${renderHeader("analytics")}
+    <main class="analytics-page">
+      <section class="analytics-hero">
+        <p class="eyebrow">Analytics</p>
+        <h1>Simple page analytics</h1>
+        <p class="analytics-note">This is a lightweight pageview tracker for the portfolio and its project pages. Counts update as pages are visited and project modals are opened from the homepage.</p>
+      </section>
+
+      <section class="analytics-panel">
+        <div class="analytics-total-card">
+          <span>Total tracked views</span>
+          <strong id="analytics-total">...</strong>
+        </div>
+        <div class="analytics-list" id="analytics-list"></div>
+        <p class="analytics-error" id="analytics-error" hidden>Analytics could not be loaded right now.</p>
+      </section>
+    </main>
+  </div>
+  <script>
+    (() => {
+      const namespace = ${JSON.stringify(ANALYTICS_NAMESPACE)};
+      const pages = ${JSON.stringify(analyticsPages)};
+      const totalEl = document.getElementById("analytics-total");
+      const listEl = document.getElementById("analytics-list");
+      const errorEl = document.getElementById("analytics-error");
+
+      function counterName(route) {
+        const normalized = (route || "/").replace(/\\/index\\.html$/, "/").replace(/\\/+/g, "/");
+        if (normalized === "/" || normalized === "") return "home";
+        const routeWithSlash = normalized.endsWith("/") ? normalized : normalized + "/";
+        return routeWithSlash
+          .replace(/^\\//, "")
+          .replace(/\\/$/, "")
+          .toLowerCase()
+          .replace(/[^a-z0-9/_-]+/g, "-")
+          .replace(/\\//g, "__");
+      }
+
+      function fetchCount(route) {
+        const url =
+          "https://api.counterapi.dev/v1/" +
+          encodeURIComponent(namespace) +
+          "/" +
+          encodeURIComponent(counterName(route)) +
+          "/";
+
+        return fetch(url)
+          .then((response) => {
+            if (!response.ok) throw new Error("Bad response");
+            return response.json();
+          })
+          .then((json) => Number(json.count || 0));
+      }
+
+      Promise.all(
+        pages.map(async (page) => ({
+          ...page,
+          count: await fetchCount(page.route)
+        }))
+      )
+        .then((results) => {
+          const sorted = results.slice().sort((a, b) => b.count - a.count || a.label.localeCompare(b.label));
+          const total = sorted.reduce((sum, item) => sum + item.count, 0);
+          totalEl.textContent = total.toLocaleString();
+          listEl.innerHTML = sorted
+            .map(
+              (item) =>
+                '<article class="analytics-item">' +
+                  '<div>' +
+                    '<p class="analytics-item-label">' + item.label.replace(/[&<>"]/g, (char) => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[char])) + '</p>' +
+                    '<p class="analytics-item-route">' + item.route.replace(/[&<>"]/g, (char) => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[char])) + '</p>' +
+                  '</div>' +
+                  '<strong>' + item.count.toLocaleString() + '</strong>' +
+                '</article>'
+            )
+            .join("");
+        })
+        .catch(() => {
+          totalEl.textContent = "--";
+          errorEl.hidden = false;
+        });
+    })();
+  </script>
+`;
+
+writeFileSync(
+  path.join(analyticsDir, "index.html"),
+  layout({
+    title: `Analytics | ${data.home.siteTitle}`,
+    description: "Simple page analytics for Felipe Soares portfolio.",
+    body: analyticsBody,
+    depth: 1
+  })
+);
 
 const styles = `
 :root {
@@ -1102,6 +1279,70 @@ figcaption {
   transform: translateY(-1px);
   background: rgba(17, 24, 32, 0.95);
   border-color: var(--line-strong);
+}
+
+.analytics-page {
+  gap: 2rem;
+  padding-top: 2rem;
+}
+
+.analytics-hero {
+  display: grid;
+  gap: 1rem;
+  max-width: 46rem;
+}
+
+.analytics-hero h1 {
+  margin: 0;
+  font-family: var(--serif);
+  font-size: clamp(2.8rem, 6vw, 4.8rem);
+  line-height: 0.98;
+  letter-spacing: -0.05em;
+}
+
+.analytics-note,
+.analytics-error,
+.analytics-item-route {
+  margin: 0;
+  color: var(--muted);
+}
+
+.analytics-panel {
+  display: grid;
+  gap: 1rem;
+}
+
+.analytics-total-card,
+.analytics-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 1.15rem 1.25rem;
+  border: 1px solid var(--line);
+  border-radius: 1.35rem;
+  background: rgba(17, 24, 32, 0.7);
+}
+
+.analytics-total-card span,
+.analytics-item-label {
+  margin: 0;
+  font-weight: 600;
+}
+
+.analytics-total-card strong,
+.analytics-item strong {
+  font-size: 1.3rem;
+  font-weight: 700;
+}
+
+.analytics-list {
+  display: grid;
+  gap: 0.85rem;
+}
+
+.analytics-item {
+  align-items: flex-start;
 }
 
 .modal-header {
