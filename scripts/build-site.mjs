@@ -104,6 +104,13 @@ function analyticsCounterName(route = "/") {
 const analyticsPages = [
   { label: "Home", route: "/" },
   { label: "Analytics", route: "/analytics/" },
+  { label: "Beatbox", route: "/beatbox/" },
+  { label: "Canvas App", route: "/canvas-app/" },
+  { label: "CodePlayer", route: "/codeplayer/" },
+  { label: "Felipeu", route: "/felipeu/" },
+  { label: "Mixology Cards", route: "/mixology-cards/" },
+  { label: "Quote Machine", route: "/quote-machine/" },
+  { label: "Sunny Dublin", route: "/sunny-dublin/" },
   ...data.projects.map((project) => ({
     label: project.title,
     route: `/projects/${project.slug}/`
