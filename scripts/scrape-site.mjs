@@ -52,10 +52,7 @@ function stripUnsafeHtml(value = "") {
 
   while (current !== previous) {
     previous = current;
-    current = current
-      .replace(/<script\b[\s\S]*?<\/script>/gi, "")
-      .replace(/<style\b[\s\S]*?<\/style>/gi, "")
-      .replace(/<[^>]+>/g, "");
+    current = current.replace(/<[^>]+>/g, "");
   }
 
   return current;
