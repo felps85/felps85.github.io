@@ -151,7 +151,7 @@ function renderAnalyticsBootstrap() {
             encodeURIComponent(namespace) +
             "/" +
             encodeURIComponent(counterName(normalized)) +
-            "/up/";
+            "/up";
 
           fetch(url, { method: "GET", keepalive: true }).catch(() => {});
         }
@@ -558,6 +558,7 @@ const analyticsBody = `
 
         return fetch(url)
           .then((response) => {
+            if (response.status === 400) return { count: 0 };
             if (!response.ok) throw new Error("Bad response");
             return response.json();
           })

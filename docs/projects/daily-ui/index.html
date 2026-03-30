@@ -125,7 +125,7 @@
             encodeURIComponent(namespace) +
             "/" +
             encodeURIComponent(counterName(normalized)) +
-            "/up/";
+            "/up";
 
           fetch(url, { method: "GET", keepalive: true }).catch(() => {});
         }
