@@ -1,0 +1,16 @@
+{
+  "name": "Sunny Pubs in Ireland",
+  "short_name": "Sunny Pubs",
+  "start_url": "/sunny-dublin/",
+  "display": "standalone",
+  "background_color": "#202736",
+  "theme_color": "#202736",
+  "icons": [
+    {
+      "src": "./favicon-default.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    }
+  ]
+}
