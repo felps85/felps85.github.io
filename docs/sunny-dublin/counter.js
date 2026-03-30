@@ -9,7 +9,7 @@
       encodeURIComponent(namespace) +
       "/" +
       encodeURIComponent(counter) +
-      "/up/",
+      "/up",
     { method: "GET", keepalive: true }
   ).catch(() => {});
 })();
