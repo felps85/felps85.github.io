@@ -6,6 +6,13 @@ const SITE_URL = "https://felip.eu";
 const OUTPUT_DIR = path.resolve("data");
 const OUTPUT_FILE = path.join(OUTPUT_DIR, "portfolio.json");
 
+const NAMED_HTML_ENTITIES = {
+  nbsp: " ",
+  amp: "&",
+  quot: '"',
+  "#39": "'"
+};
+
 function fetchPage(url) {
   return execFileSync("curl", ["-L", "--retry", "3", "--retry-delay", "1", "--max-time", "30", url], {
     encoding: "utf8",
@@ -13,24 +20,56 @@ function fetchPage(url) {
   });
 }
 
-function decodeHtml(value = "") {
-  return value
-    .replace(/&#(\d+);/g, (_, num) => String.fromCharCode(Number(num)))
-    .replace(/&#x([0-9a-f]+);/gi, (_, hex) => String.fromCharCode(parseInt(hex, 16)))
-    .replace(/&nbsp;/g, " ")
-    .replace(/&amp;/g, "&")
-    .replace(/&quot;/g, '"')
-    .replace(/&#39;/g, "'")
-    .replace(/&lt;/g, "<")
-    .replace(/&gt;/g, ">");
+function decodeHtml(value = "", { decodeBrackets = true } = {}) {
+  return value.replace(/&(#\d+|#x[0-9a-f]+|nbsp|amp|quot|#39|lt|gt);/gi, (match, token) => {
+    const normalized = token.toLowerCase();
+
+    if (normalized === "lt") {
+      return decodeBrackets ? "<" : "&lt;";
+    }
+
+    if (normalized === "gt") {
+      return decodeBrackets ? ">" : "&gt;";
+    }
+
+    if (normalized.startsWith("#x")) {
+      const point = Number.parseInt(normalized.slice(2), 16);
+      return Number.isNaN(point) ? match : String.fromCodePoint(point);
+    }
+
+    if (normalized.startsWith("#")) {
+      const point = Number.parseInt(normalized.slice(1), 10);
+      return Number.isNaN(point) ? match : String.fromCodePoint(point);
+    }
+
+    return NAMED_HTML_ENTITIES[normalized] ?? match;
+  });
+}
+
+function stripUnsafeHtml(value = "") {
+  let current = value;
+  let previous = "";
+
+  while (current !== previous) {
+    previous = current;
+    current = current
+      .replace(/<script\b[\s\S]*?<\/script>/gi, "")
+      .replace(/<style\b[\s\S]*?<\/style>/gi, "")
+      .replace(/<[^>]+>/g, "");
+  }
+
+  return current;
 }
 
 function stripTags(value = "") {
-  return decodeHtml(value)
-    .replace(/<br\s*\/?>/gi, "\n")
-    .replace(/<\/div>/gi, "\n")
-    .replace(/<\/p>/gi, "\n")
-    .replace(/<[^>]+>/g, "")
+  const withoutTags = stripUnsafeHtml(
+    value
+      .replace(/<br\s*\/?>/gi, "\n")
+      .replace(/<\/div>/gi, "\n")
+      .replace(/<\/p>/gi, "\n")
+  );
+
+  return decodeHtml(withoutTags, { decodeBrackets: false })
     .replace(/\n{3,}/g, "\n\n")
     .split("\n")
     .map((line) => line.trim())
@@ -122,7 +161,7 @@ function extractProjectModules(html) {
 
 function extractSocials(html) {
   const socials = [];
-  const matches = html.matchAll(/<a href="(https?:\/\/[^"]+|mailto:[^"]+)"[^>]*target="_blank"|<a href="(mailto:[^"]+)"/g);
+  const matches = html.matchAll(/<a href="(https?:\/\/[^\"]+|mailto:[^\"]+)"[^>]*target="_blank"|<a href="(mailto:[^\"]+)"/g);
   for (const match of matches) {
     const href = match[1] || match[2];
     if (!href || socials.includes(href)) {
