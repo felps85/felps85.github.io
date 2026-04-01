@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://felip.eu/sunny-dublin/sitemap.xml
+Sitemap: https://sunnypubs.ie/sitemap.xml
