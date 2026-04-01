@@ -108,10 +108,17 @@
       Promise.all(
         pages.map(async (page) => ({
           ...page,
-          count: await fetchCount(page.route),
-          activeBuckets: await fetchActiveBuckets(page.route)
+          count: await fetchCount(page.route)
         }))
       )
+        .then((results) =>
+          Promise.all(
+            results.map(async (item) => ({
+              ...item,
+              activeBuckets: item.count ? await fetchActiveBuckets(item.route) : 0
+            }))
+          )
+        )
         .then((results) => {
           const sorted = results
             .map((item) => ({
