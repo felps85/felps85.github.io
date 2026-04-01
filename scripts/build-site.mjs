@@ -604,6 +604,14 @@ const analyticsBody = `
           <span>Total tracked views</span>
           <strong id="analytics-total">...</strong>
         </div>
+        <div class="analytics-toolbar">
+          <label class="analytics-search">
+            <span class="analytics-search-label">Find a page</span>
+            <input id="analytics-search" type="search" placeholder="Search by page name or route" list="analytics-search-suggestions" autocomplete="off" />
+          </label>
+          <p class="analytics-search-count" id="analytics-search-count">Loading pages...</p>
+        </div>
+        <datalist id="analytics-search-suggestions"></datalist>
         <div class="analytics-list" id="analytics-list"></div>
         <p class="analytics-error" id="analytics-error" hidden>Analytics could not be loaded right now.</p>
       </section>
@@ -617,6 +625,10 @@ const analyticsBody = `
       const totalEl = document.getElementById("analytics-total");
       const listEl = document.getElementById("analytics-list");
       const errorEl = document.getElementById("analytics-error");
+      const searchEl = document.getElementById("analytics-search");
+      const searchCountEl = document.getElementById("analytics-search-count");
+      const searchSuggestionsEl = document.getElementById("analytics-search-suggestions");
+      let analyticsRows = [];
 
       function counterName(route) {
         const normalized = (route || "/").replace(/\\/index\\.html$/, "/").replace(/\\/+/g, "/");
@@ -674,6 +686,43 @@ const analyticsBody = `
         return minutes + "m " + remainder + "s";
       }
 
+      function escapeText(value) {
+        return String(value).replace(/[&<>"]/g, (char) => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[char]));
+      }
+
+      function renderList(items) {
+        listEl.innerHTML = items
+          .map(
+            (item) =>
+              '<article class="analytics-item">' +
+                '<div>' +
+                  '<p class="analytics-item-label">' + escapeText(item.label) + '</p>' +
+                  '<p class="analytics-item-route">' + escapeText(item.route) + '</p>' +
+                '</div>' +
+                '<div class="analytics-item-stats">' +
+                  '<strong>' + item.count.toLocaleString() + '</strong>' +
+                  '<p class="analytics-item-meta">Avg active time ' + formatDuration(item.averageSeconds) + '</p>' +
+                '</div>' +
+              '</article>'
+          )
+          .join("");
+      }
+
+      function updateSearchResults() {
+        const query = (searchEl.value || "").trim().toLowerCase();
+        const filtered = !query
+          ? analyticsRows
+          : analyticsRows.filter((item) =>
+              item.label.toLowerCase().includes(query) || item.route.toLowerCase().includes(query)
+            );
+
+        renderList(filtered);
+        searchCountEl.textContent =
+          filtered.length === analyticsRows.length
+            ? analyticsRows.length + " pages"
+            : filtered.length + " of " + analyticsRows.length + " pages";
+      }
+
       Promise.all(
         pages.map(async (page) => ({
           ...page,
@@ -696,22 +745,13 @@ const analyticsBody = `
             }))
             .sort((a, b) => b.count - a.count || a.label.localeCompare(b.label));
           const total = sorted.reduce((sum, item) => sum + item.count, 0);
+          analyticsRows = sorted;
           totalEl.textContent = total.toLocaleString();
-          listEl.innerHTML = sorted
-            .map(
-              (item) =>
-                '<article class="analytics-item">' +
-                  '<div>' +
-                    '<p class="analytics-item-label">' + item.label.replace(/[&<>"]/g, (char) => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[char])) + '</p>' +
-                    '<p class="analytics-item-route">' + item.route.replace(/[&<>"]/g, (char) => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[char])) + '</p>' +
-                  '</div>' +
-                  '<div class="analytics-item-stats">' +
-                    '<strong>' + item.count.toLocaleString() + '</strong>' +
-                    '<p class="analytics-item-meta">Avg active time ' + formatDuration(item.averageSeconds) + '</p>' +
-                  '</div>' +
-                '</article>'
-            )
+          searchSuggestionsEl.innerHTML = sorted
+            .map((item) => '<option value="' + escapeText(item.label) + '"></option><option value="' + escapeText(item.route) + '"></option>')
             .join("");
+          updateSearchResults();
+          searchEl.addEventListener("input", updateSearchResults);
         })
         .catch(() => {
           totalEl.textContent = "--";
@@ -1443,7 +1483,7 @@ figcaption {
 
 .analytics-panel {
   display: grid;
-  gap: 1rem;
+  gap: 0.85rem;
 }
 
 .analytics-total-card,
@@ -1452,10 +1492,50 @@ figcaption {
   align-items: center;
   justify-content: space-between;
   gap: 1rem;
-  padding: 1.15rem 1.25rem;
+  padding: 0.8rem 1rem;
   border: 1px solid var(--line);
-  border-radius: 1.35rem;
+  border-radius: 1.05rem;
   background: rgba(17, 24, 32, 0.7);
+}
+
+.analytics-toolbar {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 0.9rem;
+  align-items: end;
+}
+
+.analytics-search {
+  display: grid;
+  gap: 0.4rem;
+}
+
+.analytics-search-label,
+.analytics-search-count {
+  margin: 0;
+  font-size: 0.82rem;
+  color: var(--muted);
+}
+
+.analytics-search input {
+  width: 100%;
+  min-height: 2.9rem;
+  padding: 0.75rem 0.95rem;
+  border: 1px solid var(--line);
+  border-radius: 0.95rem;
+  background: rgba(17, 24, 32, 0.7);
+  color: var(--text);
+  font: inherit;
+}
+
+.analytics-search input::placeholder {
+  color: var(--soft);
+}
+
+.analytics-search input:focus {
+  outline: 1px solid rgba(226, 162, 93, 0.45);
+  outline-offset: 0;
+  border-color: rgba(226, 162, 93, 0.45);
 }
 
 .analytics-total-card span,
@@ -1466,28 +1546,37 @@ figcaption {
 
 .analytics-total-card strong,
 .analytics-item strong {
-  font-size: 1.3rem;
+  font-size: 1.12rem;
   font-weight: 700;
 }
 
 .analytics-item-stats {
   display: grid;
   justify-items: end;
-  gap: 0.35rem;
+  gap: 0.18rem;
 }
 
 .analytics-item-meta {
-  font-size: 0.88rem;
+  font-size: 0.76rem;
   text-align: right;
 }
 
 .analytics-list {
   display: grid;
-  gap: 0.85rem;
+  gap: 0.55rem;
 }
 
 .analytics-item {
   align-items: flex-start;
+}
+
+.analytics-item-label {
+  font-size: 0.95rem;
+}
+
+.analytics-item-route {
+  font-size: 0.82rem;
+  line-height: 1.35;
 }
 
 .modal-header {

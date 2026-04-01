@@ -35,6 +35,14 @@
           <span>Total tracked views</span>
           <strong id="analytics-total">...</strong>
         </div>
+        <div class="analytics-toolbar">
+          <label class="analytics-search">
+            <span class="analytics-search-label">Find a page</span>
+            <input id="analytics-search" type="search" placeholder="Search by page name or route" list="analytics-search-suggestions" autocomplete="off" />
+          </label>
+          <p class="analytics-search-count" id="analytics-search-count">Loading pages...</p>
+        </div>
+        <datalist id="analytics-search-suggestions"></datalist>
         <div class="analytics-list" id="analytics-list"></div>
         <p class="analytics-error" id="analytics-error" hidden>Analytics could not be loaded right now.</p>
       </section>
@@ -48,6 +56,10 @@
       const totalEl = document.getElementById("analytics-total");
       const listEl = document.getElementById("analytics-list");
       const errorEl = document.getElementById("analytics-error");
+      const searchEl = document.getElementById("analytics-search");
+      const searchCountEl = document.getElementById("analytics-search-count");
+      const searchSuggestionsEl = document.getElementById("analytics-search-suggestions");
+      let analyticsRows = [];
 
       function counterName(route) {
         const normalized = (route || "/").replace(/\/index\.html$/, "/").replace(/\/+/g, "/");
@@ -105,6 +117,43 @@
         return minutes + "m " + remainder + "s";
       }
 
+      function escapeText(value) {
+        return String(value).replace(/[&<>"]/g, (char) => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[char]));
+      }
+
+      function renderList(items) {
+        listEl.innerHTML = items
+          .map(
+            (item) =>
+              '<article class="analytics-item">' +
+                '<div>' +
+                  '<p class="analytics-item-label">' + escapeText(item.label) + '</p>' +
+                  '<p class="analytics-item-route">' + escapeText(item.route) + '</p>' +
+                '</div>' +
+                '<div class="analytics-item-stats">' +
+                  '<strong>' + item.count.toLocaleString() + '</strong>' +
+                  '<p class="analytics-item-meta">Avg active time ' + formatDuration(item.averageSeconds) + '</p>' +
+                '</div>' +
+              '</article>'
+          )
+          .join("");
+      }
+
+      function updateSearchResults() {
+        const query = (searchEl.value || "").trim().toLowerCase();
+        const filtered = !query
+          ? analyticsRows
+          : analyticsRows.filter((item) =>
+              item.label.toLowerCase().includes(query) || item.route.toLowerCase().includes(query)
+            );
+
+        renderList(filtered);
+        searchCountEl.textContent =
+          filtered.length === analyticsRows.length
+            ? analyticsRows.length + " pages"
+            : filtered.length + " of " + analyticsRows.length + " pages";
+      }
+
       Promise.all(
         pages.map(async (page) => ({
           ...page,
@@ -127,22 +176,13 @@
             }))
             .sort((a, b) => b.count - a.count || a.label.localeCompare(b.label));
           const total = sorted.reduce((sum, item) => sum + item.count, 0);
+          analyticsRows = sorted;
           totalEl.textContent = total.toLocaleString();
-          listEl.innerHTML = sorted
-            .map(
-              (item) =>
-                '<article class="analytics-item">' +
-                  '<div>' +
-                    '<p class="analytics-item-label">' + item.label.replace(/[&<>"]/g, (char) => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[char])) + '</p>' +
-                    '<p class="analytics-item-route">' + item.route.replace(/[&<>"]/g, (char) => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[char])) + '</p>' +
-                  '</div>' +
-                  '<div class="analytics-item-stats">' +
-                    '<strong>' + item.count.toLocaleString() + '</strong>' +
-                    '<p class="analytics-item-meta">Avg active time ' + formatDuration(item.averageSeconds) + '</p>' +
-                  '</div>' +
-                '</article>'
-            )
+          searchSuggestionsEl.innerHTML = sorted
+            .map((item) => '<option value="' + escapeText(item.label) + '"></option><option value="' + escapeText(item.route) + '"></option>')
             .join("");
+          updateSearchResults();
+          searchEl.addEventListener("input", updateSearchResults);
         })
         .catch(() => {
           totalEl.textContent = "--";
