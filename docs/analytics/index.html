@@ -27,7 +27,7 @@
       <section class="analytics-hero">
         <p class="eyebrow">Analytics</p>
         <h1>Simple page analytics</h1>
-        <p class="analytics-note">This is a lightweight pageview tracker for the portfolio and its project pages. Counts update as pages are visited and project modals are opened from the homepage.</p>
+        <p class="analytics-note">This is a lightweight pageview tracker for the portfolio and its project pages. Counts update as pages are visited, project modals are opened from the homepage, and average active time is estimated in 10-second buckets while a page stays visible.</p>
       </section>
 
       <section class="analytics-panel">
@@ -43,6 +43,7 @@
   <script>
     (() => {
       const namespace = "felip-eu-portfolio";
+      const activeBucketSeconds = 10;
       const pages = [{"label":"Home","route":"/"},{"label":"Analytics","route":"/analytics/"},{"label":"Beatbox","route":"/beatbox/"},{"label":"Canvas App","route":"/canvas-app/"},{"label":"CodePlayer","route":"/codeplayer/"},{"label":"Felipeu","route":"/felipeu/"},{"label":"Mixology Cards","route":"/mixology-cards/"},{"label":"Quote Machine","route":"/quote-machine/"},{"label":"Sunny Dublin","route":"/sunny-dublin/"},{"label":"Pension account","route":"/projects/pension-account/"},{"label":"Savings account","route":"/projects/savings-account/"},{"label":"Open Banking","route":"/projects/open-banking/"},{"label":"Discovery missions","route":"/projects/discovery-missions/"},{"label":"Dimply admin (sample)","route":"/projects/dimply-admin-old-sample/"},{"label":"Dimply (preview)","route":"/projects/dimply-preview/"},{"label":"Mortgage Viewer","route":"/projects/mortgage-viewer/"},{"label":"Gmail for work","route":"/projects/gmail-for-work/"},{"label":"Apple Health - Improve DAU","route":"/projects/apple-health-improve-dau/"},{"label":"Ryanair Rooms","route":"/projects/ryanair-rooms/"},{"label":"Aer Lingus","route":"/projects/aer-lingus/"},{"label":"Small Animations","route":"/projects/small-animations/"},{"label":"e-commerce","route":"/projects/e-commerce/"},{"label":"Customer Portal","route":"/projects/customer-portal/"},{"label":"A/B Testing","route":"/projects/ab-testing/"},{"label":"API documentation","route":"/projects/api-documentation/"},{"label":"Body illustrations","route":"/projects/body-illustrations/"},{"label":"e-Book","route":"/projects/e-book/"},{"label":"Cart","route":"/projects/cart/"},{"label":"LGC Blog Illustrations","route":"/projects/lgc-blog-illustrations/"},{"label":"Small animations","route":"/projects/small-animations-1/"},{"label":"Digital Painting","route":"/projects/digital-painting/"},{"label":"Ryanair X","route":"/projects/ryanair-x/"},{"label":"Admin Dashboard","route":"/projects/admin-dashboard/"},{"label":"Admin dashboard","route":"/projects/prototyping/"},{"label":"Branding Escola Vila Alpha","route":"/projects/branding-escola-vila-alpha/"},{"label":"icons","route":"/projects/icons/"},{"label":"TCAS Online #concept","route":"/projects/tcas-online-concept/"},{"label":"Daily UI","route":"/projects/daily-ui/"},{"label":"Music Matters - Mokation","route":"/projects/music-matters-mokation/"},{"label":"Magic Photo Gifts","route":"/projects/magic-photo-gifts/"},{"label":"David Plaza Hotel","route":"/projects/david-plaza-hotel/"},{"label":"Equiposhop","route":"/projects/equiposhop/"},{"label":"Cardelli in concert","route":"/projects/cardelli-in-concert/"},{"label":"Agro Ravena Refresh","route":"/projects/agro-ravena-refresh/"},{"label":"Logofolio","route":"/projects/logofolio/"},{"label":"CI - exchange","route":"/projects/ci-exchange/"},{"label":"E-Cadeiras presentation video","route":"/projects/e-cadeiras-presentation-video/"},{"label":"Photo Restoration","route":"/projects/photo-restoration/"}];
       const totalEl = document.getElementById("analytics-total");
       const listEl = document.getElementById("analytics-list");
@@ -77,14 +78,47 @@
           .then((json) => Number(json.count || 0));
       }
 
+      function fetchActiveBuckets(route) {
+        const url =
+          "https://api.counterapi.dev/v1/" +
+          encodeURIComponent(namespace) +
+          "/" +
+          encodeURIComponent(counterName(route) + "__active") +
+          "/";
+
+        return fetch(url)
+          .then((response) => {
+            if (response.status === 400) return { count: 0 };
+            if (!response.ok) throw new Error("Bad response");
+            return response.json();
+          })
+          .then((json) => Number(json.count || 0));
+      }
+
+      function formatDuration(seconds) {
+        const rounded = Math.max(0, Math.round(seconds));
+        if (!rounded) return "0s";
+        const minutes = Math.floor(rounded / 60);
+        const remainder = rounded % 60;
+        if (!minutes) return remainder + "s";
+        if (!remainder) return minutes + "m";
+        return minutes + "m " + remainder + "s";
+      }
+
       Promise.all(
         pages.map(async (page) => ({
           ...page,
-          count: await fetchCount(page.route)
+          count: await fetchCount(page.route),
+          activeBuckets: await fetchActiveBuckets(page.route)
         }))
       )
         .then((results) => {
-          const sorted = results.slice().sort((a, b) => b.count - a.count || a.label.localeCompare(b.label));
+          const sorted = results
+            .map((item) => ({
+              ...item,
+              averageSeconds: item.count ? (item.activeBuckets * activeBucketSeconds) / item.count : 0
+            }))
+            .sort((a, b) => b.count - a.count || a.label.localeCompare(b.label));
           const total = sorted.reduce((sum, item) => sum + item.count, 0);
           totalEl.textContent = total.toLocaleString();
           listEl.innerHTML = sorted
@@ -95,7 +129,10 @@
                     '<p class="analytics-item-label">' + item.label.replace(/[&<>"]/g, (char) => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[char])) + '</p>' +
                     '<p class="analytics-item-route">' + item.route.replace(/[&<>"]/g, (char) => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[char])) + '</p>' +
                   '</div>' +
-                  '<strong>' + item.count.toLocaleString() + '</strong>' +
+                  '<div class="analytics-item-stats">' +
+                    '<strong>' + item.count.toLocaleString() + '</strong>' +
+                    '<p class="analytics-item-meta">Avg active time ' + formatDuration(item.averageSeconds) + '</p>' +
+                  '</div>' +
                 '</article>'
             )
             .join("");
@@ -130,25 +167,104 @@
             .replace(/\//g, "__");
         }
 
-        function trackPageView(route) {
-          const normalized = normalizeRoute(route);
-          if (trackedRoutes.has(normalized)) return;
-          trackedRoutes.add(normalized);
+        function activeCounterName(route) {
+          return counterName(route) + "__active";
+        }
 
+        function pingCounter(name) {
           const url =
             "https://api.counterapi.dev/v1/" +
             encodeURIComponent(namespace) +
             "/" +
-            encodeURIComponent(counterName(normalized)) +
+            encodeURIComponent(name) +
             "/up";
 
           fetch(url, { method: "GET", keepalive: true }).catch(() => {});
         }
 
+        const activeBucketMs = 10 * 1000;
+        let activeRoute = null;
+        let activeStartedAt = 0;
+        let activeCarryMs = 0;
+        let activeTimer = null;
+
+        function flushActiveTime(finalize = false) {
+          if (!activeRoute || !activeStartedAt) return;
+
+          const now = Date.now();
+          activeCarryMs += Math.max(0, now - activeStartedAt);
+          activeStartedAt = now;
+
+          while (activeCarryMs >= activeBucketMs) {
+            pingCounter(activeCounterName(activeRoute));
+            activeCarryMs -= activeBucketMs;
+          }
+
+          if (finalize && activeCarryMs >= activeBucketMs / 2) {
+            pingCounter(activeCounterName(activeRoute));
+            activeCarryMs = 0;
+          }
+        }
+
+        function stopActiveTimer(finalize = false) {
+          flushActiveTime(finalize);
+          activeStartedAt = 0;
+          if (activeTimer) {
+            clearInterval(activeTimer);
+            activeTimer = null;
+          }
+        }
+
+        function ensureActiveTimer() {
+          if (document.visibilityState !== "visible" || activeTimer) return;
+          activeTimer = setInterval(() => flushActiveTime(false), activeBucketMs);
+        }
+
+        function setActiveRoute(route) {
+          const normalized = normalizeRoute(route);
+          const changedRoute = activeRoute !== normalized;
+
+          if (changedRoute) {
+            stopActiveTimer(true);
+            activeRoute = normalized;
+            activeCarryMs = 0;
+          }
+
+          if (document.visibilityState === "visible") {
+            activeStartedAt = Date.now();
+            ensureActiveTimer();
+          }
+        }
+
+        function trackPageView(route) {
+          const normalized = normalizeRoute(route);
+          if (!trackedRoutes.has(normalized)) {
+            trackedRoutes.add(normalized);
+            pingCounter(counterName(normalized));
+          }
+
+          setActiveRoute(normalized);
+        }
+
         window.__FS_ANALYTICS__ = {
           namespace,
-          trackPageView
+          trackPageView,
+          setActiveRoute
         };
+
+        document.addEventListener("visibilitychange", () => {
+          if (document.visibilityState === "hidden") {
+            stopActiveTimer(true);
+            return;
+          }
+
+          if (activeRoute) {
+            activeStartedAt = Date.now();
+            ensureActiveTimer();
+          }
+        });
+
+        window.addEventListener("pagehide", () => stopActiveTimer(true));
 
         trackPageView(window.location.pathname);
       })();

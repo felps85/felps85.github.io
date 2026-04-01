@@ -7,6 +7,7 @@ const outputDir = path.resolve("docs");
 const projectsDir = path.join(outputDir, "projects");
 const analyticsDir = path.join(outputDir, "analytics");
 const ANALYTICS_NAMESPACE = "felip-eu-portfolio";
+const ANALYTICS_ACTIVE_BUCKET_SECONDS = 10;
 let assets = { covers: {}, modules: {}, embeds: {} };
 
 try {
@@ -141,25 +142,104 @@ function renderAnalyticsBootstrap() {
             .replace(/\\//g, "__");
         }
 
-        function trackPageView(route) {
-          const normalized = normalizeRoute(route);
-          if (trackedRoutes.has(normalized)) return;
-          trackedRoutes.add(normalized);
+        function activeCounterName(route) {
+          return counterName(route) + "__active";
+        }
 
+        function pingCounter(name) {
           const url =
             "https://api.counterapi.dev/v1/" +
             encodeURIComponent(namespace) +
             "/" +
-            encodeURIComponent(counterName(normalized)) +
+            encodeURIComponent(name) +
             "/up";
 
           fetch(url, { method: "GET", keepalive: true }).catch(() => {});
         }
 
+        const activeBucketMs = ${ANALYTICS_ACTIVE_BUCKET_SECONDS} * 1000;
+        let activeRoute = null;
+        let activeStartedAt = 0;
+        let activeCarryMs = 0;
+        let activeTimer = null;
+
+        function flushActiveTime(finalize = false) {
+          if (!activeRoute || !activeStartedAt) return;
+
+          const now = Date.now();
+          activeCarryMs += Math.max(0, now - activeStartedAt);
+          activeStartedAt = now;
+
+          while (activeCarryMs >= activeBucketMs) {
+            pingCounter(activeCounterName(activeRoute));
+            activeCarryMs -= activeBucketMs;
+          }
+
+          if (finalize && activeCarryMs >= activeBucketMs / 2) {
+            pingCounter(activeCounterName(activeRoute));
+            activeCarryMs = 0;
+          }
+        }
+
+        function stopActiveTimer(finalize = false) {
+          flushActiveTime(finalize);
+          activeStartedAt = 0;
+          if (activeTimer) {
+            clearInterval(activeTimer);
+            activeTimer = null;
+          }
+        }
+
+        function ensureActiveTimer() {
+          if (document.visibilityState !== "visible" || activeTimer) return;
+          activeTimer = setInterval(() => flushActiveTime(false), activeBucketMs);
+        }
+
+        function setActiveRoute(route) {
+          const normalized = normalizeRoute(route);
+          const changedRoute = activeRoute !== normalized;
+
+          if (changedRoute) {
+            stopActiveTimer(true);
+            activeRoute = normalized;
+            activeCarryMs = 0;
+          }
+
+          if (document.visibilityState === "visible") {
+            activeStartedAt = Date.now();
+            ensureActiveTimer();
+          }
+        }
+
+        function trackPageView(route) {
+          const normalized = normalizeRoute(route);
+          if (!trackedRoutes.has(normalized)) {
+            trackedRoutes.add(normalized);
+            pingCounter(counterName(normalized));
+          }
+
+          setActiveRoute(normalized);
+        }
+
         window.__FS_ANALYTICS__ = {
           namespace,
-          trackPageView
+          trackPageView,
+          setActiveRoute
         };
+
+        document.addEventListener("visibilitychange", () => {
+          if (document.visibilityState === "hidden") {
+            stopActiveTimer(true);
+            return;
+          }
+
+          if (activeRoute) {
+            activeStartedAt = Date.now();
+            ensureActiveTimer();
+          }
+        });
+
+        window.addEventListener("pagehide", () => stopActiveTimer(true));
 
         trackPageView(window.location.pathname);
       })();
@@ -434,6 +514,7 @@ const homeBody = `
         modal.hidden = true;
         document.body.classList.remove("modal-open");
         history.replaceState(null, "", window.location.pathname + window.location.search);
+        window.__FS_ANALYTICS__?.setActiveRoute(window.location.pathname);
       }
 
       triggers.forEach((trigger) => {
@@ -515,7 +596,7 @@ const analyticsBody = `
       <section class="analytics-hero">
         <p class="eyebrow">Analytics</p>
         <h1>Simple page analytics</h1>
-        <p class="analytics-note">This is a lightweight pageview tracker for the portfolio and its project pages. Counts update as pages are visited and project modals are opened from the homepage.</p>
+        <p class="analytics-note">This is a lightweight pageview tracker for the portfolio and its project pages. Counts update as pages are visited, project modals are opened from the homepage, and average active time is estimated in ${ANALYTICS_ACTIVE_BUCKET_SECONDS}-second buckets while a page stays visible.</p>
       </section>
 
       <section class="analytics-panel">
@@ -531,6 +612,7 @@ const analyticsBody = `
   <script>
     (() => {
       const namespace = ${JSON.stringify(ANALYTICS_NAMESPACE)};
+      const activeBucketSeconds = ${ANALYTICS_ACTIVE_BUCKET_SECONDS};
       const pages = ${JSON.stringify(analyticsPages)};
       const totalEl = document.getElementById("analytics-total");
       const listEl = document.getElementById("analytics-list");
@@ -565,14 +647,47 @@ const analyticsBody = `
           .then((json) => Number(json.count || 0));
       }
 
+      function fetchActiveBuckets(route) {
+        const url =
+          "https://api.counterapi.dev/v1/" +
+          encodeURIComponent(namespace) +
+          "/" +
+          encodeURIComponent(counterName(route) + "__active") +
+          "/";
+
+        return fetch(url)
+          .then((response) => {
+            if (response.status === 400) return { count: 0 };
+            if (!response.ok) throw new Error("Bad response");
+            return response.json();
+          })
+          .then((json) => Number(json.count || 0));
+      }
+
+      function formatDuration(seconds) {
+        const rounded = Math.max(0, Math.round(seconds));
+        if (!rounded) return "0s";
+        const minutes = Math.floor(rounded / 60);
+        const remainder = rounded % 60;
+        if (!minutes) return remainder + "s";
+        if (!remainder) return minutes + "m";
+        return minutes + "m " + remainder + "s";
+      }
+
       Promise.all(
         pages.map(async (page) => ({
           ...page,
-          count: await fetchCount(page.route)
+          count: await fetchCount(page.route),
+          activeBuckets: await fetchActiveBuckets(page.route)
         }))
       )
         .then((results) => {
-          const sorted = results.slice().sort((a, b) => b.count - a.count || a.label.localeCompare(b.label));
+          const sorted = results
+            .map((item) => ({
+              ...item,
+              averageSeconds: item.count ? (item.activeBuckets * activeBucketSeconds) / item.count : 0
+            }))
+            .sort((a, b) => b.count - a.count || a.label.localeCompare(b.label));
           const total = sorted.reduce((sum, item) => sum + item.count, 0);
           totalEl.textContent = total.toLocaleString();
           listEl.innerHTML = sorted
@@ -583,7 +698,10 @@ const analyticsBody = `
                     '<p class="analytics-item-label">' + item.label.replace(/[&<>"]/g, (char) => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[char])) + '</p>' +
                     '<p class="analytics-item-route">' + item.route.replace(/[&<>"]/g, (char) => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[char])) + '</p>' +
                   '</div>' +
-                  '<strong>' + item.count.toLocaleString() + '</strong>' +
+                  '<div class="analytics-item-stats">' +
+                    '<strong>' + item.count.toLocaleString() + '</strong>' +
+                    '<p class="analytics-item-meta">Avg active time ' + formatDuration(item.averageSeconds) + '</p>' +
+                  '</div>' +
                 '</article>'
             )
             .join("");
@@ -1310,7 +1428,8 @@ figcaption {
 
 .analytics-note,
 .analytics-error,
-.analytics-item-route {
+.analytics-item-route,
+.analytics-item-meta {
   margin: 0;
   color: var(--muted);
 }
@@ -1342,6 +1461,17 @@ figcaption {
 .analytics-item strong {
   font-size: 1.3rem;
   font-weight: 700;
+}
+
+.analytics-item-stats {
+  display: grid;
+  justify-items: end;
+  gap: 0.35rem;
+}
+
+.analytics-item-meta {
+  font-size: 0.88rem;
+  text-align: right;
 }
 
 .analytics-list {

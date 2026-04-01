@@ -185,25 +185,104 @@
             .replace(/\//g, "__");
         }
 
-        function trackPageView(route) {
-          const normalized = normalizeRoute(route);
-          if (trackedRoutes.has(normalized)) return;
-          trackedRoutes.add(normalized);
+        function activeCounterName(route) {
+          return counterName(route) + "__active";
+        }
 
+        function pingCounter(name) {
           const url =
             "https://api.counterapi.dev/v1/" +
             encodeURIComponent(namespace) +
             "/" +
-            encodeURIComponent(counterName(normalized)) +
+            encodeURIComponent(name) +
             "/up";
 
           fetch(url, { method: "GET", keepalive: true }).catch(() => {});
         }
 
+        const activeBucketMs = 10 * 1000;
+        let activeRoute = null;
+        let activeStartedAt = 0;
+        let activeCarryMs = 0;
+        let activeTimer = null;
+
+        function flushActiveTime(finalize = false) {
+          if (!activeRoute || !activeStartedAt) return;
+
+          const now = Date.now();
+          activeCarryMs += Math.max(0, now - activeStartedAt);
+          activeStartedAt = now;
+
+          while (activeCarryMs >= activeBucketMs) {
+            pingCounter(activeCounterName(activeRoute));
+            activeCarryMs -= activeBucketMs;
+          }
+
+          if (finalize && activeCarryMs >= activeBucketMs / 2) {
+            pingCounter(activeCounterName(activeRoute));
+            activeCarryMs = 0;
+          }
+        }
+
+        function stopActiveTimer(finalize = false) {
+          flushActiveTime(finalize);
+          activeStartedAt = 0;
+          if (activeTimer) {
+            clearInterval(activeTimer);
+            activeTimer = null;
+          }
+        }
+
+        function ensureActiveTimer() {
+          if (document.visibilityState !== "visible" || activeTimer) return;
+          activeTimer = setInterval(() => flushActiveTime(false), activeBucketMs);
+        }
+
+        function setActiveRoute(route) {
+          const normalized = normalizeRoute(route);
+          const changedRoute = activeRoute !== normalized;
+
+          if (changedRoute) {
+            stopActiveTimer(true);
+            activeRoute = normalized;
+            activeCarryMs = 0;
+          }
+
+          if (document.visibilityState === "visible") {
+            activeStartedAt = Date.now();
+            ensureActiveTimer();
+          }
+        }
+
+        function trackPageView(route) {
+          const normalized = normalizeRoute(route);
+          if (!trackedRoutes.has(normalized)) {
+            trackedRoutes.add(normalized);
+            pingCounter(counterName(normalized));
+          }
+
+          setActiveRoute(normalized);
+        }
+
         window.__FS_ANALYTICS__ = {
           namespace,
-          trackPageView
+          trackPageView,
+          setActiveRoute
         };
+
+        document.addEventListener("visibilitychange", () => {
+          if (document.visibilityState === "hidden") {
+            stopActiveTimer(true);
+            return;
+          }
+
+          if (activeRoute) {
+            activeStartedAt = Date.now();
+            ensureActiveTimer();
+          }
+        });
+
+        window.addEventListener("pagehide", () => stopActiveTimer(true));
 
         trackPageView(window.location.pathname);
       })();

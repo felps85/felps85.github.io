@@ -701,7 +701,8 @@ figcaption {
 
 .analytics-note,
 .analytics-error,
-.analytics-item-route {
+.analytics-item-route,
+.analytics-item-meta {
   margin: 0;
   color: var(--muted);
 }
@@ -733,6 +734,17 @@ figcaption {
 .analytics-item strong {
   font-size: 1.3rem;
   font-weight: 700;
+}
+
+.analytics-item-stats {
+  display: grid;
+  justify-items: end;
+  gap: 0.35rem;
+}
+
+.analytics-item-meta {
+  font-size: 0.88rem;
+  text-align: right;
 }
 
 .analytics-list {
