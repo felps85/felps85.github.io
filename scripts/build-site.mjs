@@ -609,10 +609,33 @@ const analyticsBody = `
             <span class="analytics-search-label">Find a page</span>
             <input id="analytics-search" type="search" placeholder="Search by page name or route" list="analytics-search-suggestions" autocomplete="off" />
           </label>
-          <p class="analytics-search-count" id="analytics-search-count">Loading pages...</p>
+          <div class="analytics-toolbar-meta">
+            <label class="analytics-sort">
+              <span class="analytics-search-label">Sort by</span>
+              <select id="analytics-sort">
+                <option value="views-desc">Views</option>
+                <option value="time-desc">Avg active time</option>
+                <option value="label-asc">Page name</option>
+                <option value="route-asc">Route</option>
+              </select>
+            </label>
+            <p class="analytics-search-count" id="analytics-search-count">Loading pages...</p>
+          </div>
         </div>
         <datalist id="analytics-search-suggestions"></datalist>
-        <div class="analytics-list" id="analytics-list"></div>
+        <div class="analytics-table-wrap">
+          <div class="analytics-table" role="table" aria-label="Tracked page analytics">
+            <div class="analytics-table-head" role="rowgroup">
+              <div class="analytics-table-row analytics-table-row-head" role="row">
+                <button class="analytics-head-cell analytics-head-page" type="button" data-sort="label-asc">Page</button>
+                <button class="analytics-head-cell analytics-head-route" type="button" data-sort="route-asc">Route</button>
+                <button class="analytics-head-cell analytics-head-views" type="button" data-sort="views-desc">Views</button>
+                <button class="analytics-head-cell analytics-head-time" type="button" data-sort="time-desc">Avg active time</button>
+              </div>
+            </div>
+            <div class="analytics-list" id="analytics-list" role="rowgroup"></div>
+          </div>
+        </div>
         <p class="analytics-error" id="analytics-error" hidden>Analytics could not be loaded right now.</p>
       </section>
     </main>
@@ -626,9 +649,12 @@ const analyticsBody = `
       const listEl = document.getElementById("analytics-list");
       const errorEl = document.getElementById("analytics-error");
       const searchEl = document.getElementById("analytics-search");
+      const sortEl = document.getElementById("analytics-sort");
       const searchCountEl = document.getElementById("analytics-search-count");
       const searchSuggestionsEl = document.getElementById("analytics-search-suggestions");
+      const sortButtons = Array.from(document.querySelectorAll("[data-sort]"));
       let analyticsRows = [];
+      let currentSort = "views-desc";
 
       function counterName(route) {
         const normalized = (route || "/").replace(/\\/index\\.html$/, "/").replace(/\\/+/g, "/");
@@ -694,18 +720,41 @@ const analyticsBody = `
         listEl.innerHTML = items
           .map(
             (item) =>
-              '<article class="analytics-item">' +
-                '<div>' +
+              '<div class="analytics-table-row analytics-item" role="row">' +
+                '<div class="analytics-cell analytics-cell-page" role="cell">' +
                   '<p class="analytics-item-label">' + escapeText(item.label) + '</p>' +
+                '</div>' +
+                '<div class="analytics-cell analytics-cell-route" role="cell">' +
                   '<p class="analytics-item-route">' + escapeText(item.route) + '</p>' +
                 '</div>' +
-                '<div class="analytics-item-stats">' +
+                '<div class="analytics-cell analytics-cell-views" role="cell">' +
                   '<strong>' + item.count.toLocaleString() + '</strong>' +
-                  '<p class="analytics-item-meta">Avg active time ' + formatDuration(item.averageSeconds) + '</p>' +
                 '</div>' +
-              '</article>'
+                '<div class="analytics-cell analytics-cell-time" role="cell">' +
+                  '<p class="analytics-item-meta">' + formatDuration(item.averageSeconds) + '</p>' +
+                '</div>' +
+              '</div>'
           )
           .join("");
+      }
+
+      function sortRows(items) {
+        const rows = items.slice();
+        const comparators = {
+          "views-desc": (a, b) => b.count - a.count || b.averageSeconds - a.averageSeconds || a.label.localeCompare(b.label),
+          "time-desc": (a, b) => b.averageSeconds - a.averageSeconds || b.count - a.count || a.label.localeCompare(b.label),
+          "label-asc": (a, b) => a.label.localeCompare(b.label) || b.count - a.count,
+          "route-asc": (a, b) => a.route.localeCompare(b.route) || b.count - a.count
+        };
+
+        return rows.sort(comparators[currentSort] || comparators["views-desc"]);
+      }
+
+      function syncSortUi() {
+        sortEl.value = currentSort;
+        sortButtons.forEach((button) => {
+          button.setAttribute("aria-pressed", button.dataset.sort === currentSort ? "true" : "false");
+        });
       }
 
       function updateSearchResults() {
@@ -716,7 +765,7 @@ const analyticsBody = `
               item.label.toLowerCase().includes(query) || item.route.toLowerCase().includes(query)
             );
 
-        renderList(filtered);
+        renderList(sortRows(filtered));
         searchCountEl.textContent =
           filtered.length === analyticsRows.length
             ? analyticsRows.length + " pages"
@@ -750,8 +799,21 @@ const analyticsBody = `
           searchSuggestionsEl.innerHTML = sorted
             .map((item) => '<option value="' + escapeText(item.label) + '"></option><option value="' + escapeText(item.route) + '"></option>')
             .join("");
+          syncSortUi();
           updateSearchResults();
           searchEl.addEventListener("input", updateSearchResults);
+          sortEl.addEventListener("change", () => {
+            currentSort = sortEl.value;
+            syncSortUi();
+            updateSearchResults();
+          });
+          sortButtons.forEach((button) => {
+            button.addEventListener("click", () => {
+              currentSort = button.dataset.sort || "views-desc";
+              syncSortUi();
+              updateSearchResults();
+            });
+          });
         })
         .catch(() => {
           totalEl.textContent = "--";
@@ -1487,7 +1549,7 @@ figcaption {
 }
 
 .analytics-total-card,
-.analytics-item {
+.analytics-table-row {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -1505,7 +1567,18 @@ figcaption {
   align-items: end;
 }
 
+.analytics-toolbar-meta {
+  display: grid;
+  gap: 0.4rem;
+  justify-items: end;
+}
+
 .analytics-search {
+  display: grid;
+  gap: 0.4rem;
+}
+
+.analytics-sort {
   display: grid;
   gap: 0.4rem;
 }
@@ -1517,7 +1590,8 @@ figcaption {
   color: var(--muted);
 }
 
-.analytics-search input {
+.analytics-search input,
+.analytics-sort select {
   width: 100%;
   min-height: 2.9rem;
   padding: 0.75rem 0.95rem;
@@ -1532,7 +1606,8 @@ figcaption {
   color: var(--soft);
 }
 
-.analytics-search input:focus {
+.analytics-search input:focus,
+.analytics-sort select:focus {
   outline: 1px solid rgba(226, 162, 93, 0.45);
   outline-offset: 0;
   border-color: rgba(226, 162, 93, 0.45);
@@ -1545,29 +1620,82 @@ figcaption {
 }
 
 .analytics-total-card strong,
-.analytics-item strong {
+.analytics-cell-views strong {
   font-size: 1.12rem;
   font-weight: 700;
 }
 
-.analytics-item-stats {
-  display: grid;
-  justify-items: end;
-  gap: 0.18rem;
-}
-
 .analytics-item-meta {
   font-size: 0.76rem;
-  text-align: right;
+}
+
+.analytics-table-wrap {
+  overflow: hidden;
+  border: 1px solid var(--line);
+  border-radius: 1.05rem;
+  background: rgba(17, 24, 32, 0.45);
+}
+
+.analytics-table {
+  display: grid;
 }
 
 .analytics-list {
   display: grid;
-  gap: 0.55rem;
 }
 
-.analytics-item {
-  align-items: flex-start;
+.analytics-table-row {
+  display: grid;
+  grid-template-columns: minmax(0, 1.3fr) minmax(0, 1.15fr) minmax(4.8rem, 0.42fr) minmax(7rem, 0.55fr);
+  align-items: center;
+  gap: 0.9rem;
+  padding: 0.72rem 1rem;
+  border: 0;
+  border-radius: 0;
+  border-bottom: 1px solid var(--line);
+  background: transparent;
+}
+
+.analytics-table-row-head {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  background: rgba(11, 17, 22, 0.96);
+}
+
+.analytics-head-cell,
+.analytics-cell {
+  min-width: 0;
+}
+
+.analytics-head-cell {
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: var(--muted);
+  font: inherit;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  text-align: left;
+  cursor: pointer;
+}
+
+.analytics-head-cell[aria-pressed="true"] {
+  color: var(--accent);
+}
+
+.analytics-head-views,
+.analytics-head-time,
+.analytics-cell-views,
+.analytics-cell-time {
+  text-align: right;
+  justify-self: end;
+}
+
+.analytics-list .analytics-table-row:last-child {
+  border-bottom: 0;
 }
 
 .analytics-item-label {
@@ -1577,6 +1705,10 @@ figcaption {
 .analytics-item-route {
   font-size: 0.82rem;
   line-height: 1.35;
+}
+
+.analytics-cell-time .analytics-item-meta {
+  text-align: right;
 }
 
 .modal-header {
