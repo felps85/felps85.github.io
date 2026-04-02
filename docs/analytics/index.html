@@ -117,7 +117,8 @@
             if (!response.ok) throw new Error("Bad response");
             return response.json();
           })
-          .then((json) => Number(json.count || 0));
+          .then((json) => Number(json.count || 0))
+          .catch(() => null);
       }
 
       function fetchActiveBuckets(namespace, route) {
@@ -134,7 +135,8 @@
             if (!response.ok) throw new Error("Bad response");
             return response.json();
           })
-          .then((json) => Number(json.count || 0));
+          .then((json) => Number(json.count || 0))
+          .catch(() => null);
       }
 
       function formatDuration(seconds) {
@@ -247,19 +249,23 @@
         if (!dashboard) return;
 
         Promise.all(
-          dashboard.pages.map(async (page) => ({
-            ...page,
-            count: await fetchCount(dashboard.namespace, page.route)
-          }))
+          dashboard.pages.map(async (page) => {
+            const count = await fetchCount(dashboard.namespace, page.route);
+            const countFailed = count === null;
+            const safeCount = countFailed ? 0 : count;
+            const activeBuckets = safeCount
+              ? await fetchActiveBuckets(dashboard.namespace, page.route)
+              : 0;
+            const activeFailed = safeCount ? activeBuckets === null : false;
+
+            return {
+              ...page,
+              count: safeCount,
+              activeBuckets: activeFailed ? 0 : activeBuckets,
+              hasError: countFailed || activeFailed
+            };
+          })
         )
-          .then((results) =>
-            Promise.all(
-              results.map(async (item) => ({
-                ...item,
-                activeBuckets: item.count ? await fetchActiveBuckets(dashboard.namespace, item.route) : 0
-              }))
-            )
-          )
           .then((results) => {
             const sorted = results
               .map((item) => ({
@@ -268,11 +274,19 @@
               }))
               .sort((a, b) => b.count - a.count || a.label.localeCompare(b.label));
             const total = sorted.reduce((sum, item) => sum + item.count, 0);
+            const failedRows = sorted.filter((item) => item.hasError).length;
             analyticsRows = sorted;
             totalEl.textContent = total.toLocaleString();
             searchSuggestionsEl.innerHTML = sorted
               .map((item) => '<option value="' + escapeText(item.label) + '"></option><option value="' + escapeText(item.route) + '"></option>')
               .join("");
+            errorEl.hidden = failedRows === 0;
+            errorEl.textContent =
+              failedRows === 0
+                ? "Analytics could not be loaded right now."
+                : failedRows === 1
+                  ? "1 row could not be refreshed and is showing 0 for now."
+                  : String(failedRows) + " rows could not be refreshed and are showing 0 for now.";
             syncSortUi();
             updateSearchResults();
           })
