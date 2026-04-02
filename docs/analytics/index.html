@@ -27,10 +27,11 @@
       <section class="analytics-hero">
         <p class="eyebrow">Analytics</p>
         <h1>Simple page analytics</h1>
-        <p class="analytics-note">This is a lightweight pageview tracker for the portfolio and its project pages. Counts update as pages are visited, project modals are opened from the homepage, and average active time is estimated in 10-second buckets while a page stays visible.</p>
+        <p class="analytics-note" id="analytics-note"></p>
       </section>
 
       <section class="analytics-panel">
+        <div class="analytics-views" id="analytics-views" role="tablist" aria-label="Analytics views"></div>
         <div class="analytics-total-card">
           <span>Total tracked views</span>
           <strong id="analytics-total">...</strong>
@@ -73,9 +74,10 @@
   </div>
   <script>
     (() => {
-      const namespace = "felip-eu-portfolio";
       const activeBucketSeconds = 10;
-      const pages = [{"label":"Home","route":"/"},{"label":"Analytics","route":"/analytics/"},{"label":"Beatbox","route":"/beatbox/"},{"label":"Canvas App","route":"/canvas-app/"},{"label":"CodePlayer","route":"/codeplayer/"},{"label":"Felipeu","route":"/felipeu/"},{"label":"Mixology Cards","route":"/mixology-cards/"},{"label":"Quote Machine","route":"/quote-machine/"},{"label":"Sunny Dublin","route":"/sunny-dublin/"},{"label":"Pension account","route":"/projects/pension-account/"},{"label":"Savings account","route":"/projects/savings-account/"},{"label":"Open Banking","route":"/projects/open-banking/"},{"label":"Discovery missions","route":"/projects/discovery-missions/"},{"label":"Dimply admin (sample)","route":"/projects/dimply-admin-old-sample/"},{"label":"Dimply (preview)","route":"/projects/dimply-preview/"},{"label":"Mortgage Viewer","route":"/projects/mortgage-viewer/"},{"label":"Gmail for work","route":"/projects/gmail-for-work/"},{"label":"Apple Health - Improve DAU","route":"/projects/apple-health-improve-dau/"},{"label":"Ryanair Rooms","route":"/projects/ryanair-rooms/"},{"label":"Aer Lingus","route":"/projects/aer-lingus/"},{"label":"Small Animations","route":"/projects/small-animations/"},{"label":"e-commerce","route":"/projects/e-commerce/"},{"label":"Customer Portal","route":"/projects/customer-portal/"},{"label":"A/B Testing","route":"/projects/ab-testing/"},{"label":"API documentation","route":"/projects/api-documentation/"},{"label":"Body illustrations","route":"/projects/body-illustrations/"},{"label":"e-Book","route":"/projects/e-book/"},{"label":"Cart","route":"/projects/cart/"},{"label":"LGC Blog Illustrations","route":"/projects/lgc-blog-illustrations/"},{"label":"Small animations","route":"/projects/small-animations-1/"},{"label":"Digital Painting","route":"/projects/digital-painting/"},{"label":"Ryanair X","route":"/projects/ryanair-x/"},{"label":"Admin Dashboard","route":"/projects/admin-dashboard/"},{"label":"Admin dashboard","route":"/projects/prototyping/"},{"label":"Branding Escola Vila Alpha","route":"/projects/branding-escola-vila-alpha/"},{"label":"icons","route":"/projects/icons/"},{"label":"TCAS Online #concept","route":"/projects/tcas-online-concept/"},{"label":"Daily UI","route":"/projects/daily-ui/"},{"label":"Music Matters - Mokation","route":"/projects/music-matters-mokation/"},{"label":"Magic Photo Gifts","route":"/projects/magic-photo-gifts/"},{"label":"David Plaza Hotel","route":"/projects/david-plaza-hotel/"},{"label":"Equiposhop","route":"/projects/equiposhop/"},{"label":"Cardelli in concert","route":"/projects/cardelli-in-concert/"},{"label":"Agro Ravena Refresh","route":"/projects/agro-ravena-refresh/"},{"label":"Logofolio","route":"/projects/logofolio/"},{"label":"CI - exchange","route":"/projects/ci-exchange/"},{"label":"E-Cadeiras presentation video","route":"/projects/e-cadeiras-presentation-video/"},{"label":"Photo Restoration","route":"/projects/photo-restoration/"}];
+      const dashboards = [{"id":"portfolio","label":"Portfolio","namespace":"felip-eu-portfolio","note":"This is a lightweight pageview tracker for the portfolio and its project pages. Counts update as pages are visited, project modals are opened from the homepage, and average active time is estimated in 10-second buckets while a page stays visible.","pages":[{"label":"Home","route":"/"},{"label":"Analytics","route":"/analytics/"},{"label":"Beatbox","route":"/beatbox/"},{"label":"Canvas App","route":"/canvas-app/"},{"label":"CodePlayer","route":"/codeplayer/"},{"label":"Felipeu","route":"/felipeu/"},{"label":"Mixology Cards","route":"/mixology-cards/"},{"label":"Quote Machine","route":"/quote-machine/"},{"label":"Sunny Dublin","route":"/sunny-dublin/"},{"label":"Pension account","route":"/projects/pension-account/"},{"label":"Savings account","route":"/projects/savings-account/"},{"label":"Open Banking","route":"/projects/open-banking/"},{"label":"Discovery missions","route":"/projects/discovery-missions/"},{"label":"Dimply admin (sample)","route":"/projects/dimply-admin-old-sample/"},{"label":"Dimply (preview)","route":"/projects/dimply-preview/"},{"label":"Mortgage Viewer","route":"/projects/mortgage-viewer/"},{"label":"Gmail for work","route":"/projects/gmail-for-work/"},{"label":"Apple Health - Improve DAU","route":"/projects/apple-health-improve-dau/"},{"label":"Ryanair Rooms","route":"/projects/ryanair-rooms/"},{"label":"Aer Lingus","route":"/projects/aer-lingus/"},{"label":"Small Animations","route":"/projects/small-animations/"},{"label":"e-commerce","route":"/projects/e-commerce/"},{"label":"Customer Portal","route":"/projects/customer-portal/"},{"label":"A/B Testing","route":"/projects/ab-testing/"},{"label":"API documentation","route":"/projects/api-documentation/"},{"label":"Body illustrations","route":"/projects/body-illustrations/"},{"label":"e-Book","route":"/projects/e-book/"},{"label":"Cart","route":"/projects/cart/"},{"label":"LGC Blog Illustrations","route":"/projects/lgc-blog-illustrations/"},{"label":"Small animations","route":"/projects/small-animations-1/"},{"label":"Digital Painting","route":"/projects/digital-painting/"},{"label":"Ryanair X","route":"/projects/ryanair-x/"},{"label":"Admin Dashboard","route":"/projects/admin-dashboard/"},{"label":"Admin dashboard","route":"/projects/prototyping/"},{"label":"Branding Escola Vila Alpha","route":"/projects/branding-escola-vila-alpha/"},{"label":"icons","route":"/projects/icons/"},{"label":"TCAS Online #concept","route":"/projects/tcas-online-concept/"},{"label":"Daily UI","route":"/projects/daily-ui/"},{"label":"Music Matters - Mokation","route":"/projects/music-matters-mokation/"},{"label":"Magic Photo Gifts","route":"/projects/magic-photo-gifts/"},{"label":"David Plaza Hotel","route":"/projects/david-plaza-hotel/"},{"label":"Equiposhop","route":"/projects/equiposhop/"},{"label":"Cardelli in concert","route":"/projects/cardelli-in-concert/"},{"label":"Agro Ravena Refresh","route":"/projects/agro-ravena-refresh/"},{"label":"Logofolio","route":"/projects/logofolio/"},{"label":"CI - exchange","route":"/projects/ci-exchange/"},{"label":"E-Cadeiras presentation video","route":"/projects/e-cadeiras-presentation-video/"},{"label":"Photo Restoration","route":"/projects/photo-restoration/"}]},{"id":"sunnypubs","label":"Sunny Pubs","namespace":"sunnypubs-ie","note":"This keeps the sunnypubs.ie traffic separate from the portfolio while still making it easy to review from the same dashboard.","pages":[{"label":"Sunny Pubs Home","route":"/"}]}];
+      const noteEl = document.getElementById("analytics-note");
+      const viewsEl = document.getElementById("analytics-views");
       const totalEl = document.getElementById("analytics-total");
       const listEl = document.getElementById("analytics-list");
       const errorEl = document.getElementById("analytics-error");
@@ -84,6 +86,8 @@
       const searchCountEl = document.getElementById("analytics-search-count");
       const searchSuggestionsEl = document.getElementById("analytics-search-suggestions");
       const sortButtons = Array.from(document.querySelectorAll("[data-sort]"));
+      const dashboardMap = new Map(dashboards.map((dashboard) => [dashboard.id, dashboard]));
+      let currentDashboardId = dashboards[0]?.id || "portfolio";
       let analyticsRows = [];
       let currentSort = "views-desc";
 
@@ -99,7 +103,7 @@
           .replace(/\//g, "__");
       }
 
-      function fetchCount(route) {
+      function fetchCount(namespace, route) {
         const url =
           "https://api.counterapi.dev/v1/" +
           encodeURIComponent(namespace) +
@@ -116,7 +120,7 @@
           .then((json) => Number(json.count || 0));
       }
 
-      function fetchActiveBuckets(route) {
+      function fetchActiveBuckets(namespace, route) {
         const url =
           "https://api.counterapi.dev/v1/" +
           encodeURIComponent(namespace) +
@@ -169,6 +173,10 @@
           .join("");
       }
 
+      function currentDashboard() {
+        return dashboardMap.get(currentDashboardId) || dashboards[0];
+      }
+
       function sortRows(items) {
         const rows = items.slice();
         const comparators = {
@@ -188,6 +196,37 @@
         });
       }
 
+      function syncDashboardUi() {
+        const dashboard = currentDashboard();
+        noteEl.textContent = dashboard?.note || "";
+        viewsEl.innerHTML = dashboards
+          .map(
+            (dashboardItem) =>
+              '<button class="analytics-view-tab" type="button" role="tab" aria-selected="' +
+              String(dashboardItem.id === currentDashboardId) +
+              '" data-dashboard="' +
+              escapeText(dashboardItem.id) +
+              '">' +
+              escapeText(dashboardItem.label) +
+              "</button>"
+          )
+          .join("");
+        viewsEl.querySelectorAll("[data-dashboard]").forEach((button) => {
+          button.addEventListener("click", () => {
+            const nextId = button.dataset.dashboard;
+            if (!nextId || nextId === currentDashboardId) return;
+            currentDashboardId = nextId;
+            searchEl.value = "";
+            errorEl.hidden = true;
+            totalEl.textContent = "...";
+            searchCountEl.textContent = "Loading pages...";
+            listEl.innerHTML = "";
+            syncDashboardUi();
+            loadDashboard();
+          });
+        });
+      }
+
       function updateSearchResults() {
         const query = (searchEl.value || "").trim().toLowerCase();
         const filtered = !query
@@ -203,53 +242,63 @@
             : filtered.length + " of " + analyticsRows.length + " pages";
       }
 
-      Promise.all(
-        pages.map(async (page) => ({
-          ...page,
-          count: await fetchCount(page.route)
-        }))
-      )
-        .then((results) =>
-          Promise.all(
-            results.map(async (item) => ({
-              ...item,
-              activeBuckets: item.count ? await fetchActiveBuckets(item.route) : 0
-            }))
-          )
+      function loadDashboard() {
+        const dashboard = currentDashboard();
+        if (!dashboard) return;
+
+        Promise.all(
+          dashboard.pages.map(async (page) => ({
+            ...page,
+            count: await fetchCount(dashboard.namespace, page.route)
+          }))
         )
-        .then((results) => {
-          const sorted = results
-            .map((item) => ({
-              ...item,
-              averageSeconds: item.count ? (item.activeBuckets * activeBucketSeconds) / item.count : 0
-            }))
-            .sort((a, b) => b.count - a.count || a.label.localeCompare(b.label));
-          const total = sorted.reduce((sum, item) => sum + item.count, 0);
-          analyticsRows = sorted;
-          totalEl.textContent = total.toLocaleString();
-          searchSuggestionsEl.innerHTML = sorted
-            .map((item) => '<option value="' + escapeText(item.label) + '"></option><option value="' + escapeText(item.route) + '"></option>')
-            .join("");
-          syncSortUi();
-          updateSearchResults();
-          searchEl.addEventListener("input", updateSearchResults);
-          sortEl.addEventListener("change", () => {
-            currentSort = sortEl.value;
+          .then((results) =>
+            Promise.all(
+              results.map(async (item) => ({
+                ...item,
+                activeBuckets: item.count ? await fetchActiveBuckets(dashboard.namespace, item.route) : 0
+              }))
+            )
+          )
+          .then((results) => {
+            const sorted = results
+              .map((item) => ({
+                ...item,
+                averageSeconds: item.count ? (item.activeBuckets * activeBucketSeconds) / item.count : 0
+              }))
+              .sort((a, b) => b.count - a.count || a.label.localeCompare(b.label));
+            const total = sorted.reduce((sum, item) => sum + item.count, 0);
+            analyticsRows = sorted;
+            totalEl.textContent = total.toLocaleString();
+            searchSuggestionsEl.innerHTML = sorted
+              .map((item) => '<option value="' + escapeText(item.label) + '"></option><option value="' + escapeText(item.route) + '"></option>')
+              .join("");
             syncSortUi();
             updateSearchResults();
+          })
+          .catch(() => {
+            analyticsRows = [];
+            totalEl.textContent = "--";
+            errorEl.hidden = false;
+            searchCountEl.textContent = "Analytics unavailable";
           });
-          sortButtons.forEach((button) => {
-            button.addEventListener("click", () => {
-              currentSort = button.dataset.sort || "views-desc";
-              syncSortUi();
-              updateSearchResults();
-            });
-          });
-        })
-        .catch(() => {
-          totalEl.textContent = "--";
-          errorEl.hidden = false;
+      }
+
+      syncDashboardUi();
+      searchEl.addEventListener("input", updateSearchResults);
+      sortEl.addEventListener("change", () => {
+        currentSort = sortEl.value;
+        syncSortUi();
+        updateSearchResults();
+      });
+      sortButtons.forEach((button) => {
+        button.addEventListener("click", () => {
+          currentSort = button.dataset.sort || "views-desc";
+          syncSortUi();
+          updateSearchResults();
         });
+      });
+      loadDashboard();
     })();
   </script>
 

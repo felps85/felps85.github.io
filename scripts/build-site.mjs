@@ -7,6 +7,7 @@ const outputDir = path.resolve("docs");
 const projectsDir = path.join(outputDir, "projects");
 const analyticsDir = path.join(outputDir, "analytics");
 const ANALYTICS_NAMESPACE = "felip-eu-portfolio";
+const SUNNYPUBS_ANALYTICS_NAMESPACE = "sunnypubs-ie";
 const ANALYTICS_ACTIVE_BUCKET_SECONDS = 10;
 let assets = { covers: {}, modules: {}, embeds: {} };
 
@@ -116,6 +117,25 @@ const analyticsPages = [
     label: project.title,
     route: `/projects/${project.slug}/`
   }))
+];
+
+const analyticsDashboards = [
+  {
+    id: "portfolio",
+    label: "Portfolio",
+    namespace: ANALYTICS_NAMESPACE,
+    note:
+      "This is a lightweight pageview tracker for the portfolio and its project pages. Counts update as pages are visited, project modals are opened from the homepage, and average active time is estimated in 10-second buckets while a page stays visible.",
+    pages: analyticsPages
+  },
+  {
+    id: "sunnypubs",
+    label: "Sunny Pubs",
+    namespace: SUNNYPUBS_ANALYTICS_NAMESPACE,
+    note:
+      "This keeps the sunnypubs.ie traffic separate from the portfolio while still making it easy to review from the same dashboard.",
+    pages: [{ label: "Sunny Pubs Home", route: "/" }]
+  }
 ];
 
 function renderAnalyticsBootstrap() {
@@ -596,10 +616,11 @@ const analyticsBody = `
       <section class="analytics-hero">
         <p class="eyebrow">Analytics</p>
         <h1>Simple page analytics</h1>
-        <p class="analytics-note">This is a lightweight pageview tracker for the portfolio and its project pages. Counts update as pages are visited, project modals are opened from the homepage, and average active time is estimated in ${ANALYTICS_ACTIVE_BUCKET_SECONDS}-second buckets while a page stays visible.</p>
+        <p class="analytics-note" id="analytics-note"></p>
       </section>
 
       <section class="analytics-panel">
+        <div class="analytics-views" id="analytics-views" role="tablist" aria-label="Analytics views"></div>
         <div class="analytics-total-card">
           <span>Total tracked views</span>
           <strong id="analytics-total">...</strong>
@@ -642,9 +663,10 @@ const analyticsBody = `
   </div>
   <script>
     (() => {
-      const namespace = ${JSON.stringify(ANALYTICS_NAMESPACE)};
       const activeBucketSeconds = ${ANALYTICS_ACTIVE_BUCKET_SECONDS};
-      const pages = ${JSON.stringify(analyticsPages)};
+      const dashboards = ${JSON.stringify(analyticsDashboards)};
+      const noteEl = document.getElementById("analytics-note");
+      const viewsEl = document.getElementById("analytics-views");
       const totalEl = document.getElementById("analytics-total");
       const listEl = document.getElementById("analytics-list");
       const errorEl = document.getElementById("analytics-error");
@@ -653,6 +675,8 @@ const analyticsBody = `
       const searchCountEl = document.getElementById("analytics-search-count");
       const searchSuggestionsEl = document.getElementById("analytics-search-suggestions");
       const sortButtons = Array.from(document.querySelectorAll("[data-sort]"));
+      const dashboardMap = new Map(dashboards.map((dashboard) => [dashboard.id, dashboard]));
+      let currentDashboardId = dashboards[0]?.id || "portfolio";
       let analyticsRows = [];
       let currentSort = "views-desc";
 
@@ -668,7 +692,7 @@ const analyticsBody = `
           .replace(/\\//g, "__");
       }
 
-      function fetchCount(route) {
+      function fetchCount(namespace, route) {
         const url =
           "https://api.counterapi.dev/v1/" +
           encodeURIComponent(namespace) +
@@ -685,7 +709,7 @@ const analyticsBody = `
           .then((json) => Number(json.count || 0));
       }
 
-      function fetchActiveBuckets(route) {
+      function fetchActiveBuckets(namespace, route) {
         const url =
           "https://api.counterapi.dev/v1/" +
           encodeURIComponent(namespace) +
@@ -738,6 +762,10 @@ const analyticsBody = `
           .join("");
       }
 
+      function currentDashboard() {
+        return dashboardMap.get(currentDashboardId) || dashboards[0];
+      }
+
       function sortRows(items) {
         const rows = items.slice();
         const comparators = {
@@ -757,6 +785,37 @@ const analyticsBody = `
         });
       }
 
+      function syncDashboardUi() {
+        const dashboard = currentDashboard();
+        noteEl.textContent = dashboard?.note || "";
+        viewsEl.innerHTML = dashboards
+          .map(
+            (dashboardItem) =>
+              '<button class="analytics-view-tab" type="button" role="tab" aria-selected="' +
+              String(dashboardItem.id === currentDashboardId) +
+              '" data-dashboard="' +
+              escapeText(dashboardItem.id) +
+              '">' +
+              escapeText(dashboardItem.label) +
+              "</button>"
+          )
+          .join("");
+        viewsEl.querySelectorAll("[data-dashboard]").forEach((button) => {
+          button.addEventListener("click", () => {
+            const nextId = button.dataset.dashboard;
+            if (!nextId || nextId === currentDashboardId) return;
+            currentDashboardId = nextId;
+            searchEl.value = "";
+            errorEl.hidden = true;
+            totalEl.textContent = "...";
+            searchCountEl.textContent = "Loading pages...";
+            listEl.innerHTML = "";
+            syncDashboardUi();
+            loadDashboard();
+          });
+        });
+      }
+
       function updateSearchResults() {
         const query = (searchEl.value || "").trim().toLowerCase();
         const filtered = !query
@@ -772,53 +831,63 @@ const analyticsBody = `
             : filtered.length + " of " + analyticsRows.length + " pages";
       }
 
-      Promise.all(
-        pages.map(async (page) => ({
-          ...page,
-          count: await fetchCount(page.route)
-        }))
-      )
-        .then((results) =>
-          Promise.all(
-            results.map(async (item) => ({
-              ...item,
-              activeBuckets: item.count ? await fetchActiveBuckets(item.route) : 0
-            }))
-          )
+      function loadDashboard() {
+        const dashboard = currentDashboard();
+        if (!dashboard) return;
+
+        Promise.all(
+          dashboard.pages.map(async (page) => ({
+            ...page,
+            count: await fetchCount(dashboard.namespace, page.route)
+          }))
         )
-        .then((results) => {
-          const sorted = results
-            .map((item) => ({
-              ...item,
-              averageSeconds: item.count ? (item.activeBuckets * activeBucketSeconds) / item.count : 0
-            }))
-            .sort((a, b) => b.count - a.count || a.label.localeCompare(b.label));
-          const total = sorted.reduce((sum, item) => sum + item.count, 0);
-          analyticsRows = sorted;
-          totalEl.textContent = total.toLocaleString();
-          searchSuggestionsEl.innerHTML = sorted
-            .map((item) => '<option value="' + escapeText(item.label) + '"></option><option value="' + escapeText(item.route) + '"></option>')
-            .join("");
-          syncSortUi();
-          updateSearchResults();
-          searchEl.addEventListener("input", updateSearchResults);
-          sortEl.addEventListener("change", () => {
-            currentSort = sortEl.value;
+          .then((results) =>
+            Promise.all(
+              results.map(async (item) => ({
+                ...item,
+                activeBuckets: item.count ? await fetchActiveBuckets(dashboard.namespace, item.route) : 0
+              }))
+            )
+          )
+          .then((results) => {
+            const sorted = results
+              .map((item) => ({
+                ...item,
+                averageSeconds: item.count ? (item.activeBuckets * activeBucketSeconds) / item.count : 0
+              }))
+              .sort((a, b) => b.count - a.count || a.label.localeCompare(b.label));
+            const total = sorted.reduce((sum, item) => sum + item.count, 0);
+            analyticsRows = sorted;
+            totalEl.textContent = total.toLocaleString();
+            searchSuggestionsEl.innerHTML = sorted
+              .map((item) => '<option value="' + escapeText(item.label) + '"></option><option value="' + escapeText(item.route) + '"></option>')
+              .join("");
             syncSortUi();
             updateSearchResults();
+          })
+          .catch(() => {
+            analyticsRows = [];
+            totalEl.textContent = "--";
+            errorEl.hidden = false;
+            searchCountEl.textContent = "Analytics unavailable";
           });
-          sortButtons.forEach((button) => {
-            button.addEventListener("click", () => {
-              currentSort = button.dataset.sort || "views-desc";
-              syncSortUi();
-              updateSearchResults();
-            });
-          });
-        })
-        .catch(() => {
-          totalEl.textContent = "--";
-          errorEl.hidden = false;
+      }
+
+      syncDashboardUi();
+      searchEl.addEventListener("input", updateSearchResults);
+      sortEl.addEventListener("change", () => {
+        currentSort = sortEl.value;
+        syncSortUi();
+        updateSearchResults();
+      });
+      sortButtons.forEach((button) => {
+        button.addEventListener("click", () => {
+          currentSort = button.dataset.sort || "views-desc";
+          syncSortUi();
+          updateSearchResults();
         });
+      });
+      loadDashboard();
     })();
   </script>
 `;
@@ -1546,6 +1615,31 @@ figcaption {
 .analytics-panel {
   display: grid;
   gap: 0.85rem;
+}
+
+.analytics-views {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.55rem;
+}
+
+.analytics-view-tab {
+  min-height: 2.6rem;
+  padding: 0.65rem 1rem;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: rgba(17, 24, 32, 0.6);
+  color: var(--muted);
+  font: inherit;
+  font-weight: 600;
+  cursor: pointer;
+  transition: border-color 160ms ease, background 160ms ease, color 160ms ease;
+}
+
+.analytics-view-tab[aria-selected="true"] {
+  border-color: rgba(226, 162, 93, 0.45);
+  background: var(--accent-soft);
+  color: var(--text);
 }
 
 .analytics-total-card,
