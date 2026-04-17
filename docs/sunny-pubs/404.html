@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sunny Pubs has moved</title>
+    <meta name="robots" content="noindex" />
+    <link rel="canonical" href="https://sunnypubs.ie/" />
+    <style>
+      :root {
+        color-scheme: dark;
+        font-family: Inter, system-ui, sans-serif;
+      }
+      body {
+        margin: 0;
+        min-height: 100vh;
+        display: grid;
+        place-items: center;
+        background: #111827;
+        color: #f3f4f6;
+      }
+      main {
+        max-width: 32rem;
+        padding: 2rem;
+        text-align: center;
+      }
+      a {
+        color: #f4c95d;
+      }
+    </style>
+    <script>
+      (function () {
+        var path = window.location.pathname || "/sunny-pubs/";
+        var suffix = path.indexOf("/sunny-pubs") === 0 ? path.slice("/sunny-pubs".length) : "/";
+        if (!suffix || suffix === "") suffix = "/";
+        if (suffix.charAt(0) !== "/") suffix = "/" + suffix;
+        var target = new URL(suffix + window.location.search + window.location.hash, "https://sunnypubs.ie");
+        window.location.replace(target.toString());
+      })();
+    </script>
+  </head>
+  <body>
+    <main>
+      <h1>Sunny Pubs has moved</h1>
+      <p>Redirecting you to the new home of Sunny Pubs.</p>
+      <p><a href="https://sunnypubs.ie/">Continue to sunnypubs.ie</a></p>
+    </main>
+  </body>
+</html>
